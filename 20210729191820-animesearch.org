@@ -1,0 +1,19 @@
+:PROPERTIES:
+:ID:       def92aec-1698-4d86-ab34-4c40de3828fa
+:END:
+#+title: AnimeSearch
+
+* Pipeline
+  1. Sentencizer: Divides the reviews into sentences of desired length. [[https://www.kaggle.com/iamparadox/pipeline-sentencizer/edit][Kaggle Notebook: Pipeline Sentencizer]]
+  2. Summarizer: "Summarizes" the reviews to extract important information in review related to that anime. [[https://www.kaggle.com/iamparadox/pipeline-summarizer/edit][Kaggle Notebook: Pipeline Summarizer]]
+  3. Fine Tuning: finetune the transformer model for specific domain. **Kaggle Notebook: Pipeline Finetuning**
+
+
+* Anime Context
+
+== Problem == How to take more context of anime given a query aside from semantic similarity of a sentence of review?
+
+** Readings
+1. [[https://arxiv.org/pdf/1812.10901v1.pdf][Knowlege graph]]
+2. [[id:db4674ca-ba8b-4264-b855-595c33d3f345][Gaussian Mixture Models]]
+3. [[https://towardsdatascience.com/the-5-clustering-algorithms-data-scientists-need-to-know-a36d136ef68][Clustering Algorithms]]

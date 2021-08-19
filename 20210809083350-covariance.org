@@ -1,0 +1,34 @@
+:PROPERTIES:
+:ID:       d7ad3726-5138-4f5c-9a0a-e3262542fae4
+:END:
+#+title: covariance
+
+* Covariance
+** Why it's needed?
+- Measures such as mean, variance and standard deviation =works only on 1-D= like we can find mean
+  of the heights of the student.
+  But we need some other measure that compares the similarity between two different features of the data.
+  For eg: if we have the data like
+
+  | Hrs | Score |
+  |-----+-------|
+  | 500 |    80 |
+  |  90 |    30 |
+  | 650 |    95 |
+
+  Here, Hrs measure the no. of hrs studied by the student and the score indicates the marks scored in the exam.
+  We would like to measure if there is some relation between Hrs studied and marks scored. As we can see that
+  there is some kind of relation between Hrs and marks if the Hrs increases so the marks scored. Measuring the
+  similarity between different features will help us better understand the data.
+
+ - =It's like dot product taking of two vectors to compare it's similarity=
+
+** Formula
+ $$cov(X,Y) = \frac{\sum_i^n(X_i - \bar{X})(Y_i - \bar{Y})}{(n - 1)}$$
+
+ According to the above example the variables will be the following:
+ $$X$$ = hrs
+ $$Y$$ = Score
+ $$n$$ = no of rows
+ $$\bar{X}$$ = mean of hrs
+ $$\bar{Y}$$ = mean of Score

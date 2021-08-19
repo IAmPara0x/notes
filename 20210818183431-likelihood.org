@@ -1,0 +1,24 @@
+:PROPERTIES:
+:ID:       66c73314-4665-46da-8ba0-5cf64ba18aaa
+:END:
+#+title: Likelihood
+
+* Likelihood function
+
+** Definition
+    Likelihood measures the goodess of the fit of a statistical model to a sample of data.
+
+    - In probability we ask the question =what is the "chance" that a given event occur given a certain distribution (parameters)?=
+    - In Likelihood we ask the question =How likely we will see the data samples from our data given a particular distribution with some parameters?=
+
+    These two are fundamentally different questions probability depends on parameters of distribution and
+    likelihood depends on our data.
+
+    Likelihood is defined by $$L(\theta;data)$$
+    Probability is defined by $$P(data;\theta)$$
+    where $\theta$ is the parameters of the distribution
+
+** Maximum Likelihood Estimation (MLE) / Log likelihood
+    MLE is process of estimating best parameters of the probability distribution given the data.
+    1. [[https://towardsdatascience.com/probability-concepts-explained-maximum-likelihood-estimation-c7b4342fdbb1][How MLE works?]]
+    2. =What is log likelihood?= Using log on the expression while calculating parameters makes it easy differentiate.

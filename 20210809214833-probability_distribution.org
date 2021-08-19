@@ -1,0 +1,4 @@
+:PROPERTIES:
+:ID:       75871280-c28d-4099-b644-070de75352f2
+:END:
+#+title: probability distribution

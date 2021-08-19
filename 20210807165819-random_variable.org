@@ -1,0 +1,29 @@
+:PROPERTIES:
+:ID:       b64c6b61-f8ac-4bd9-a3fd-d95d266bcdd5
+:END:
+#+title: Random Variable
+
+* Random Variable
+ **Definition**: random variable is a measureable function that maps outcomes of a random event to real numbers. or random variable is a variable whose values depend on outcome of a random event.
+    Equation: $$X: \omega \rightarrow E$$
+    where $$\omega$$ is sample space of that random event.
+
+ **Explanation**
+
+    - Generally speaking a variable is a symbol that works as placeholder for expressions whose value can vary.
+      1. In algebra the value of a variable can be calculated w.r.t equations i.e given an equation and a variable we can find the values of that variable.
+
+    - Values of algebraic variables can be calculated with respect to equations. For eg:
+        **y + 10 = 9**
+        in the given equation we can calculate the value of y in this case it will be -1.
+
+        But in the case of random variable it is not possible to know for sure what value the variable will
+        have because the value of the variable depends on the output of an random event.
+
+        For eg: consider a fair coin toss if a coin toss is results in
+                Heads then X = 2
+                Tails then X = 0
+
+                Now, there is no way to know where X = 2 or X = 4 because the result of the values depends on the outcome of a coin toss of a random event.
+                We can assign probabilities to the values of the X that will help us guess what value X will have but we can't be sure about the value of X unlike
+                in the above equation where the value of y was -1.
