@@ -1,0 +1,76 @@
+:PROPERTIES:
+:ID:       68431601-04f2-4a8b-96dc-6d9766cbfea7
+:END:
+#+title: AnimeSearch Research
+
+* Progress
+1. Using Triplet loss against reviews of anime with genres ST
+   $$g_{1} \cap g_{2} = \emptyset$$
+   where,
+   * $g1$ is a set of genres of an anime
+   * $g2$ is a set of genres of a different anime
+
+2. Reducing the size of the reviews to few sentences
+3. Finetuning the transformers on reviews
+4. using previosuly trained model as a feature extractor to extract important sentences from reviews and then train on those sentences
+5. substituting all the anime names with special character =[ANIMENAME]= and with all the characters names with
+   * =[MAINCHAR]=
+   * =[MALECHAR]=
+   * =[FEMALECHAR]=
+
+     *why*? so, that it doesn't cluster by just seeing particular anime name or character name
+6. using triplet loss with two different metrics distance and cosine similarity
+   * *Doesn't know if it improves the performance*
+7. using triplet loss against reviews of anime with tags ST
+   $$t_{1} \cap t_{2} = \emptyset$$
+   where,
+   * $t1$ is a set of tags of an anime
+   * $t2$ is a set of tags of a different anime
+   *why*? Because tags tell more about the story of the anime and give more context about anime.
+
+* Anime Context
+
+** problems
+
+- How to take more context of anime given a query aside from semantic similarity of a sentence of review?
+  *This problem is kind of related to document clustering.*
+
+** Models
+*** Roberta-Base v3 Data v2
+- Description: Roberta-Base from [[https://www.kaggle.com/iamparadox/review-ranking/edit/run/66037520]]
+- Data Description: Changed all the anime names with special character [ANIMENAME]
+  * [[https://www.kaggle.com/iamparadox/review-context-data/edit][Review Context Data]]
+- Criterion: criterion is triplet-loss with p=2,m=2 and triplet loss with cosine-similarity as the metric with m=0.5
+- Eval: after 1.5K steps
+    * Eval Loss 1.11
+    * Training Loss 1.07
+- LR: 1e-5
+
+*** Roberta-Base v3 Data v3
+- Description: Roberta-Base from [[https://www.kaggle.com/iamparadox/review-ranking/edit/run/66037520]]
+- Data Description: Changed all the anime names with special character [ANIMENAME], incresead query length from 32 to 64 and changed all the character names into 3 special characters
+  1. [MALE_CHAR]
+  2. [FEMALE_CHAR]
+  3. [MAIN_CHAR]
+  4. [[https://www.kaggle.com/iamparadox/review-context-data/edit][Review Context Data]]
+
+- Criterion: criterion is triplet-loss with p=2,m=2 and triplet loss with cosine-similarity as the metric with m=0.5
+- Eval:
+  * after 1.5K steps
+    + Eval Loss 0.83
+    + Training Loss 0.87
+  * after 3k steps
+    + Eval Loss 0.75
+    + Training Loss 0.54
+  * after 7.5k steps
+    + Eval loss 0.67
+    + Training Loss 0.32
+
+- LR: 1e-5
+
+** Readings
+1. [[https://arxiv.org/pdf/1812.10901v1.pdf][Knowlege graph]]
+2. [[https://towardsdatascience.com/the-5-clustering-algorithms-data-scientists-need-to-know-a36d136ef68][Clustering Algorithms]]
+3. [[https://www.cs.utexas.edu/users/inderjit/public_papers/kdd_bipartite.pdf][Research paper that introduces new method of clustering and clusters similar documents and words]]
+4. Research Papers on clustering using entropy
+   - [[https://jmlr.org/papers/volume8/banerjee07a/banerjee07a.pdf]]

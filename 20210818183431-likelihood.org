@@ -3,8 +3,9 @@
 :END:
 #+title: Likelihood
 
-* Likelihood function
+#+SETUPFILE: https://fniessen.github.io/org-html-themes/org/theme-readtheorg.setup
 
+* Likelihood function
 ** Definition
     Likelihood measures the goodess of the fit of a statistical model to a sample of data.
 
