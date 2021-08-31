@@ -29,3 +29,31 @@ Anything thing that statisfies these 10 axioms can be vector spaces. In general 
 statisfies these axioms under particular operations.
 
 eg: $F(-\infty,\infty)$ is vector space of all functions defined at $x$ where $$ x \in (-\infty,\infty)$$.
+
+* Subspaces
+:PROPERTIES:
+:ID:       7b51c63c-9424-4ec4-b64c-5c63fc59cf49
+:END:
+  Definition: A subset $W$ of a vector space $V$ is called a subspace of $V$ if $W$ is itself a vector space under addition
+  and mulitplication defined on $V$.
+
+*** Theorems
+
+1. If set of vectors $W$ is a subset of a vector space $V$ then for $W$ to be a subspace of $V$.
+   $W$ need's to statisfy
+   * closure property of addition
+   * closure property of mulitplication
+     defined under $V$
+
+2. If $$W_1,W_2,...,W_r$$ are subspaces of a vector space $V$ then intersection of these subspaces is also a subspace.
+
+3. If $$S = {w_1,w_2,...,w_r} $$ is a non-empty set of a vectors in a vector space $V$ then
+   * set $W$ all possible linear combination of $S$ is also a subspace of $V$
+   * set $W$ is the smallest subspace that contains all the vectors in $S$
+
+* Span
+:PROPERTIES:
+:ID:       d424b4a1-0a33-4871-84cc-7e3d76721a49
+:END:
+Definition: If $S = {w_1,w_2,..,w_r}$ is a set of vectors in a vector space $V$ then the subspace $W$ of $V$ that
+consists of all possible linear combinations of the vectors $S$ is span($S$).
