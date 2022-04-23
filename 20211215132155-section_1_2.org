@@ -1,0 +1,46 @@
+:PROPERTIES:
+:ID:       4908d22b-6205-4d9b-a396-e8e4af3e6101
+:END:
+#+title: Section 1.2
+#+filetags: :Algebra:Theorems:Multivariable:Analysis:
+
+* Theorems
+
+$$a,b,c \in \mathbb{R}$$
+
+** (1) $\text{If } a = x + a \Rightarrow x = 0$
+
+TODO: Complete Proof
+
+** (2) $\text{If } a \times x = a \text{ and } a \neq 0 \Rightarrow x = 1$
+
+TODO: Complete Proof
+
+** (3) $\text{If } a + b = 0 \Rightarrow b = -a$
+
+TODO: Complete Proof
+
+** (4) $\text{if } a \times b = 1 \text{ and } a \neq 0\Rightarrow b = a^{-1}$
+
+todo: complete proof
+
+** (5) $0 \times a = 0$
+
+todo: complete proof
+
+** (6) $-a = (-1) \times a$
+
+todo: complete proof
+
+** (7) $-(-a) = a$
+
+todo: complete proof
+
+
+** (8) $(-1)^2 = 1$
+
+todo: complete proof
+
+** (9) $-(a - b) = b - a$
+
+todo: complete proof

@@ -1,0 +1,9 @@
+:PROPERTIES:
+:ID:       36ba11ba-b179-4415-9aeb-38e212780ee2
+:END:
+#+title: E-UTXOs
+#+filetags: :Crypto:Blockchain:
+
+#+SETUPFILE: https://fniessen.github.io/org-html-themes/org/theme-readtheord.setup
+
+* E-UTXOs

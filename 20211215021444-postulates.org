@@ -1,0 +1,72 @@
+:PROPERTIES:
+:ID:       27e4c428-6797-4663-b409-5903afd3a7df
+:END:
+#+title: Postulates
+#+filetags: :Axioms:Calculus:Multivariable:Analysis:
+
+* Postulates
+
+** Field Axioms
+These relation of functions $$+, \times$$ with $\mathbb{R}\times\mathbb{R}$
+statisfies the following properties:
+
+*** Closure property
+
+  $$a,b \in \mathbb{R} \Rightarrow a+b \in \mathbb{R},  a\times b \in \mathbb{R}$$
+
+*** Associative property
+
+$$a,b,c \in \mathbb{R} \Rightarrow a + (b + c) = (a + b) + c , a \times (b \times c) = (a \times b) \times c $$
+
+*** Commutative property
+
+$$ a,b \in \mathbb{R} \Rightarrow a + b = b + a, a \times b = b \times a$$
+
+*** Distributive property
+
+$a,b,c \in \mathbb{R} \Rightarrow a \times (b \times c) = a \times b + a \times c$
+
+*** Multiplicative Identity
+
+$a \in \mathbb{R} \Rightarrow a \times 1 = a$
+
+*** Addivitive Identity
+
+$$a \in \mathbb{R} \Rightarrow a + 0 = a$$
+
+*** Multiplicative Inverse
+
+$$a,a^{-1} \in \mathbb{R} \Rightarrow a \times a^{-1} = 1$$
+
+*** Additive Inverse
+
+$$a,-a \in \mathbb{R} \Rightarrow a + (-a) = 0$$
+
+
+** Order Axioms
+
+The above Field Axioms doesn't define relations between elements of $\mathbb{R}$.
+Therefore, these set of axioms are needed to be defined $<$ defines relation between
+$\mathbb{R} \times \mathbb{R}$ .
+
+$a,b,c \in \mathbb{R}$
+
+*** Tricotmy property
+
+one and Only one of the following relation will hold:
+
+$a < b \text{ , }\ b < a \text{ , or }\ a = b$
+
+*** Transitive property
+
+$a < b \text{ , }\ b < c \Rightarrow a < c$
+
+*** Additive property
+
+$\text{if } a < b \Rightarrow a + c < b + c$
+
+*** Multiplicative property
+
+$a < b \text{ and } 0 < c \Rightarrow a\times c < b \times c$
+
+$a < b \text{ and } c < 0 \Rightarrow b\times c < a \times c$

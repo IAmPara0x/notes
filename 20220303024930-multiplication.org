@@ -1,0 +1,39 @@
+:PROPERTIES:
+:ID:       4a61e191-8361-4eb2-b84a-48d50a55591d
+:END:
+#+title: Multiplication
+
+#+filetags: :Calculus:Multivariable Calculus:Analysis:
+
+#+SETUPFILE: https://fniessen.github.io/org-html-themes/org/theme-readtheord.setup
+
+* Definition 2.3.1 (Multiplication of natural numbers)
+    Let $m$ be a natural number. To multiply zero to $m$, we define $0 \times m := 0$. Now suppose inductively that we have
+    defined how to multiply $n$ to $m$. Then we can multiply $n++$ to $m$ by defining $(n++) \times := (n \times m) + m$.
+
+* Lemma 2.3.2 (Multiplication is commutative).
+    Let $n,m$ be /natural numbers/. Then $n \times m = m \times n$.
+
+* Lemma 2.3.3 (Positive natural numbers have no zero divisors).
+    Let $n,m$ be /natural numbers/. Then $n \times m = 0$ iff at least one of $n,m$ is equal to /zero/.
+    In particular, if $n$ and $m$ are both positive, then $n \times m$ is also positive.
+
+* Proposition 2.3.4 (Distributive Law)
+    For any /natural numbers/ $a,b,c$ we have $a(b + c) = ab + ac$ and $(b + c)a = ba + ca$.
+
+* Proposition 2.3.5 (Multiplication is associative).
+    For any /natural numbers/ $a,b,c$, we have $(a \times b) \times c = a \times (b \times c)$.
+
+* Proposition 2.3.6 (Multiplication preserves order).
+    If $a,b$ are /natural numbers/ such that $a<b$, and $c$ is /positive/, then $ac < bc$.
+
+* Corollary 2.3.7 (Cancellation Law).
+    Let $a,b,c$ be /natural numbers/ such that $ac = bc$ and $c$ is /non-zero/. Then $a = b$.
+
+* Proposition 2.3.9 (Euclidean algorithm)
+    Let $n$ be a /natural number/, and let $q$ be a /positive number/. Then there exist /natural numbers/ $m,r$ such
+    that $0 \leq r < q$ and $n = mq + r$.
+
+* Definition 2.3.11 (Exponentiation for natural numbers).
+    Let $m$ be a natural number. To raise $m$ to the power $0$, we define $m^0 := 1$; in particular, we define $0^0 := 1$.
+    Now suppose recursively that $m^n$ has been defined for some natural numbers $n$, then we define $m^{n++} := m^n \times m$.

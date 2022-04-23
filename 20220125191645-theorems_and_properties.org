@@ -1,0 +1,269 @@
+:PROPERTIES:
+:ID:       d1940d9c-7bf2-4eba-9ff8-d85188d1893e
+:END:
+#+title: Theorems And Properties (The Real Number System)
+
+#+filetags: :Calculus:Multivariable Calculus:Analysis:
+
+#+SETUPFILE: https://fniessen.github.io/org-html-themes/org/theme-readtheord.setup
+
+* 1.2 Ordered Field Axioms
+
+** Posutlate 1. [Field Axioms]
+        $a,b,c \in \mathbb{R}$
+
+    1. Closure Properties:  $a + b \in \mathbb{R}$ and $a \times b \in \mathbb{R}$
+    2. Associative Properties: $a + (b + c) = (a + b) + c$ and  $a \times (b \times c) = (a \times b) \times c$
+    3. Commutative Properties: $a + b = b + a$ and $a \times b = b \times a$
+    4. Distributive Law: $a \times (b + c) = a \times b + a \times c$
+    5. Existence of the Additive Identity: $0 \in \mathbb{R}$ such that $0 + a = a, \forall a \in \mathbb{}$
+    6. Existence of the Multiplicative Identity: $1 \in \mathbb{R}$ such that $1 \neq 0$ and $1 \times a = a, \forall a \in \mathbb{R}$
+    7. Existence of Additive Inverses: For every $a \in \mathbb{R}$ there is a unique element $-a\in \mathbb{R}$ such that $a + (-a) = 0$
+    8. Existence of Multiplicative Inverses: For every $a \in \mathbb{R}$ there is a unique element $a^{-1}\in \mathbb{R}$ such that $a \times (a^{-1}) = 0$
+
+** Posutlate 2. [Order Axioms]
+    There is a relation $<$ on $\mathbb{R} \times \mathbb{R}$ that has following properties:
+
+    1. Trichotomy Property: $a,b\in\mathbb{R}$ one and only one of the following statements holds:
+        $a < b$, $b < a$ or $a = b$
+
+    2. Transitive Property: For $a,b,c \in \mathbb{R}$
+       $a < b$ and $b < c$ $\Rightarrow a < c$
+
+    3. The Additive Property: For $a,b,c \in \mathbb{R}$,
+       $a < b$ and $c \in \mathbb{R} \Rightarrow a + c < b + c$
+
+    4. The Multiplicative Properties: For $a,b,c \in \mathbb{R}$,
+       $a < b$ and $c > 0 \Rightarrow a \times c < b \times c$
+       $a < b$ and $c < 0 \Rightarrow b \times c < a \times c$
+
+
+* 1.1 Remark
+    1. $n,m \in \mathbb{Z} \Rightarrow n+m, n-m, n\times m \in \mathbb{Z}$
+    2. $n \in \mathbb{Z} \Rightarrow n \in \mathbb{N}$ if and only if $n \ge 1$
+    3. There is no $n \in \mathbb{Z}$ that satisfies $0 < n < 1$
+
+* 1.5 Remark
+    The absolute value is multiplicative i.e $|a\times b| = |a| |b|$
+
+* 1.6 Theorem [Fundametal Theorem Of Absolute Value]
+    Let $a \in \mathbb{R}$ and $0 \leq M$ . Then $|a| \leq M$ if and only if $-M \leq a \leq M$
+
+* 1.7 Theorem
+    The absolute value statisfies the following three properties:
+
+    1. [Positive Definite] For all $a \in \mathbb{R}$, $|a| \geq 0$ with $|a| = 0$ if and only if $a = 0$
+    2. [Symmetric] For all $a,b \in \mathbb{R}, |a - b| = |b - a|$
+    3. [Triangle Ineqalities] For all $a,b \in \mathbb{R}$,
+       $|a + b| \leq |a| + |b|$ and $||a| - |b|| \leq |a - b|$
+
+* 1.9 Theorem.
+    Let $x,y,a, \in \mathbb{R}$
+
+    1. $x < y + \epsilon, \forall \epsilon > 0$ if and only if $x \leq y$
+    2. $x > y - \epsilon, \forall \epsilon > 0$ if and only if $x \geq y$
+    3. $|a| < \epsilon, \forall \epsilon > 0$ if and only if $a = 0$
+
+* 1.10 Definition
+    Let $\mathbb{E} \subset \mathbb{R}$ be nonempty.
+
+    1. The set $\mathbb{E}$ is said to be bounded above if and only if there is an $M \in \mathbb{R}$ such
+       that $a \leq M, \forall a \in \mathbb{E}$, in which case $M$ is called an upper bound of $\mathbb{E}$.
+
+    2. A number $s$ is called a supremum of the set $\mathbb{E}$ if and only if $s$ is an upper
+        bound of $\mathbb{E}$ and $s \leq M, \forall M \in \mathbb{R}$ for all upper bounds $M$ of $\mathbb{E}$.
+
+* 1.12 Remark
+    If a set has one upper bound, it has infinitely many upper bounds.
+
+* 1.13 Remark
+    If a set has a supremum, then it has only one supremum.
+
+* 1.14 Theorem [Approximation Property For Suprema].
+    If $\mathbb{E}$ has a finite supremum and $\epsilon > 0$ is any positive number, then there is a
+    point $a \in \mathbb{E}$ such that
+        sup$\mathbb{E} - \epsilon < a \leq$ sup$\mathbb{E}$
+
+
+* 1.15 Theorem:
+    If $\mathbb{E} \in \mathbb{Z}$ has a supremum, then sup$\mathbb{E} \in \mathbb{E}$. In particular, if the supremum of a set, which contains only integers, exists, that supremum must be an integer.
+
+* Posutlate 3. [Completeness Axiom].
+    If $E$ is a nonempty subset of $\mathbb{R}$ that is bounded above, then $\mathbb{E}$ has finite supremum.
+
+* 1.16 Theorem [Archimedean Principle]
+    Given $a,b \in \mathbb{R}$, with $a > 0$, there is an integer $n \in \mathbb{N}$ such that $b < n \times a$.
+
+* 1.18 Theorem: [Density Of Rationals]
+    If $a,b \in \mathbb{R}$ statisfy $a < b \Rightarrow q \in \mathbb{Q}$ such that $a < q < b$.
+
+* 1.19 Definition
+    Let $\mathbb{E} \subset \mathbb{R}$ be nonempty.
+
+    1. The set $\mathbb{E}$ is said to be bounded below if and only if there is an $M \in \mathbb{R}$ such
+       that $a \geq M, \forall a \in \mathbb{E}$, in which case $M$ is called a lower bound of $\mathbb{E}$.
+
+    2. A number $s$ is called a infimum of the set $\mathbb{E}$ if and only if $s$ is a lower
+        bound of $\mathbb{E}$ and $s \geq M, \forall M \in \mathbb{R}$ for all lower bounds $M$ of $\mathbb{E}$.
+
+* 1.20 Theorem [Reflection Principle]
+    Let $\mathbb{E} \subseteq \mathbb{R}$ be nonempty.
+
+    1. $\mathbb{E}$ has a supremum if and only if $-\mathbb{E}$ has an infimum,in which case
+       inf($-\mathbb{E}$) = -sup$\mathbb{E}$
+
+    2. $\mathbb{E}$ has an infimum if and only if $-\mathbb{E}$ has a supremum, in which case
+       sup(-$\mathbb{E}$) = -inf$\mathbb{E}$
+
+* 1.21 Theorem [Monotone Property]
+    Suppose $\mathbb{A} \subseteq \mathbb{B}$  are nonempty subsets of $\mathbb{R}$.
+
+    1. If $\mathbb{B}$ has a supremum, then sup$\mathbb{A} \leq$ sup$\mathbb{B}$
+    2. If $\mathbb{B}$ has a infimum, then sup$\mathbb{A} \geq$ sup$\mathbb{B}$
+
+* 1.22 Theorem [Well-Ordering Principle]
+    If $\mathbb{E}$ is a nonempty subset of $\mathbb{N}$, then $\mathbb{E}$ has a least element (i.e $\mathbb{E}$ has a finite infimum and inf$\mathbb{E} \in \mathbb{E}$)
+
+* 1.23 Theorem
+    Suppose for each $n \in \mathbb{n}$ that $A(n)$ is a proposition (i.e a verbal statement or formula) which satisfies the following properties:
+    1. $A(1)$ is true
+    2. For every $n \in \mathbb{N}$ for which $A(n)$ is true, $A(n+1)$ is also true.
+    Then $A(n)$ is true for all $n \in \mathbb{N}$.
+
+* 1.25 Lemma
+    If $n,k \in \mathbb{N}$ and $1 \le k \le n$ then
+        $\left(\frac{n + 1}{k}\right)$ = $\left(\frac{n}{k - 1}\right) + \left(\frac{n}{k}\right)$
+
+* 1.26 Theorem [Binomial Formula]
+    If $a,b \in \mathbb{R}, n \in \mathbb{N}$ and $0^0$ is interpreted to be 1, then
+    $(a + b)^n = \sum_{k=0}^n \left(\frac{n}{k}\right)a^{n-k}b^k$
+
+* 1.27 Remark
+    If $x > 1$ and $x \not\in \mathbb{N}$ then there is an $n \in \mathbb{N}$ such that $n < x < n+1$.
+
+* 1.28 Remark
+    If $n \in \mathbb{N}$ is not a perfect square (i.e if there is no $m \in \mathbb{N}$ such that $n = m^2$), then $\sqrt{n}$ is irrational.
+
+* 1.29 Definition
+    Let $X$ and $Y$ be sets and $f : X \rightarrow Y$
+        1. $f$ is said to be 1-1 (one-to-one or an Injection) if and only if
+            $x_1,x_2 \in X$ and $f(x_1) = f(x_2) \Rightarrow x_1 = x_2$
+        2. $f$ is said to be onto (or a surjection) if and only if for each $y \in Y$ there is an $x \in X$ such that $y = f(x)$.
+        3. $f$ is called a bijection if and only if it is both 1-1 and onto.
+
+* 1.30 Theorem
+    Let $X$ and $Y$ be sets and $f: X \rightarrow Y$. Then the following three statements are equivalent.
+        1. $f$ has an inverse.
+        2. $f$ is 1-1 from $X$ and $Y$.
+        3. There is a function $g: X \rightarrow Y$ such that
+           $g(f(x)) = x, \forall x \in X$
+           and
+           $f(g(y)) = y, \forall y \in Y$
+
+* 1.31 Remark
+Let $I$ be an interval and let $f : I \rightarrow \mathbb{R}$. If the derivative of $f$ is either always positve on $I$,
+or always negative on $I$, then $f$ is 1-1 on $I$.
+
+
+* 1.33 Definition
+Let $X$ and $Y$ be sets and $f: X \rightarrow Y$. The image of a set $E \subseteq X$ under $f$ is the set
+    $f(E) := \{y \in Y: y = f(x) \text{ for some } x \in E \}$
+
+The inverse image of a set $E \subseteq Y$ under $f$ is the set
+    $f^{-1}(E) := \{x \in X : f(x) = y \text{ for some } y \in E\}$
+
+
+* 1.35 Definition
+    Let $\epsilon = \{E_{\alpha}\}_{\alpha \in A}$ be a collection of sets.
+        1)  The /union/ of the collection $\epsilon$ is the set
+           $\bigcup_{\alpha \in A} E_{\alpha} := \{x: x \in E_{\alpha} \text{ for some } \alpha \in A\}$
+
+        2) The /intersection/ of the collection $\epsilon$ is the set
+           $\bigcap_{\alpha \in A} E_{\alpha} := \{x: x \in E_{\alpha} \text{ for all }  \alpha \in A \}$
+
+* 1.36 Theorem [DeMorGan's Laws]
+    Let $X$ be a set and $\{E_{\alpha}\}_{\alpha \in A}$ be a collection of subsets of $X$.
+    If for each $E \subseteq X$ the symbol $E^c$ represents the set $X\setminus E$, then
+    $\left(\bigcup_{\alpha \in A} E_{\alpha}\right)^c = \bigcap_{\alpha \in A} E_{\alpha}^c$
+
+    and
+
+    $\left(\bigcap_{\alpha \in A} E_{\alpha}\right)^c = \bigcup_{\alpha \in A} E_{\alpha}^c$
+
+* 1.37 Theorem
+    Let $X$ and $Y$ be sets and $f: X \rightarrow Y$
+
+        1) If $\{E_{\alpha}\}_{\alpha \in A}$ is a collection of subsets of $X$, then
+           $f\left(\bigcup_{\alpha \in A}E_{\alpha}\right) = \bigcup_{\alpha \in A}f(E_{\alpha})$ and $f\left(\bigcap_{\alpha \in A}E_{\alpha}\right) \subseteq \bigcap_{\alpha \in A} f(E_{\alpha})$
+
+        2) If $B$ and $C$ are subsets of $X$, then $f(C\setminus B) \supseteq f(C) \setminus f(B)$
+
+        3) If $\{E_{\alpha}\}_{\alpha \in A}$ is a collection of subsets of $Y$, then
+           $f^{-1}\left(\bigcup_{\alpha \in A} E_{\alpha} \right) = \bigcup_{\alpha \in A} f^{-1}(E_{\alpha})$ and $f^{-1}\left(\bigcap_{\alpha \in A} E_{\alpha} \right) = \bigcap_{\alpha \in A} f^{-1}(E_{\alpha})$
+
+        4) If $B$ and $C$ are subsets of $Y$, then $f(C\setminus B) = f(C) \setminus f(B)$.
+
+        5) If $E \subseteq f(X)$, then $f(f^{-1}(E)) = E$, but if $E \subseteq X$ then $f^{-1}(f(E)) \supseteq E$
+
+* 1.38 Definition
+    Let $E$ be a set
+     1) $E$ is said to be /finite/ if and only if either $E = \phi$ or there exists a 1-1 function which takes $\{1,2,...,n\}$ onto E, for some $n \in \mathbb{N}$.
+     2) $E$ is said to be /countable/ if and only if there exists 1-1 function which takes $\mathbb{N}$ onto $E$.
+     3) $E$ is said to be /at most count/ if and only if $E$ is either finite or countable.
+     4) $E$ is said to be /uncountable/ if and only if $E$ is neither finite nor countable.
+
+* 1.39 Remark [Cantor's Diagonalization Argument].
+    The /open interval/  (0,1) is /uncountable/.
+
+* 1.40 Lemma
+    A /nonempty/ set $E$ is /at most countable/ if and only if there is a function $g$ from $\mathbb{N}$ onto $E$.
+
+* 1.41 Theorem.
+
+    Suppose that $A$ and $B$ are sets.
+
+    1) If $A \subseteq B$ and $B$ is /at most countable/, then $A$ is /at most countable/.
+    2) If $A \subseteq B$ and $A$ is /uncountable/, then $B$ is /uncountable/.
+    3) $\mathbb{R}$ is uncountable.
+
+* 1.42 Theorem
+    Let $A_1, A_2,...,A_n$ be at most /countable/ sets.
+    1) Then $A_1 \times A_2$ is at most /countable/.
+    2) If
+        $E = \bigcup_{j=1}^{\infty}A_j := \bigcup_{j\in \mathbb{N}} A_j := \{x: x \in A_j  \text{ for some } j \in \mathbb{N} \}$
+        then $E$ is at most /countable/.
+
+* 1.43 Remark.
+    The sets $\mathbb{Z}$ and $\mathbb{Q}$ are /countable/, but the set of irrationals is uncountable.
+
+---------------
+
+* Extra Remarks
+
+** [Density of Irrationals]
+
+    If $a,b \in \mathbb{R}$ and $a < b \Rightarrow \xi \in \mathbb{Q}^c$ such that $a < \xi < b$.
+
+** [Approximation Property of Infima]
+
+    If $\mathbb{M} \subset \mathbb{R}$ has a finite infimum and $\epsilon > 0 \Rightarrow a \in \mathbb{M}$ such that Inf$\mathbb{M} + \epsilon > a \ge$ Inf$\mathbb{M}$.
+
+** [Completeness Property For Infima]
+
+    If $\mathbb{E} \subseteq \mathbb{R}$ is nonempty  and bounded below then $\mathbb{E}$ has a finite infimum.
+
+
+** Theorem
+    Let $X, Y$ be sets and $f: X \rightarrow Y$ then the following statements are equivalent:
+        1. $f$ is 1-1 on $X$.
+        2. $f(A\setminus B) = f(A)\setminus f(B)$ for all subsets of $A$ and $B$ of $X$.
+        3. $f^{-1}(f(E)) = E$ for all subsets $E$ of $X$.
+        4. $f(A \cap B) = f(A) \cap f(B)$ for all subsets $A$ and $B$ of X.
+
+---------------
+
+* My Remarks
+
+ 1. Addition between rationals and irrationals are always irrationals.
+ 2. Multiplication between rationals ans irrationals are always irrationals.
+ 3. $a,b,c,d,\in \mathbb{R}$ and $a < b, c < d \Rightarrow a + c < b + d$

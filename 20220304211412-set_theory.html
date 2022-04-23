@@ -1,0 +1,866 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2022-04-16 Sat 15:34 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Set Theory</title>
+<meta name="author" content="John Doe" />
+<meta name="generator" content="Org Mode" />
+<style>
+  #content { max-width: 60em; margin: auto; }
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #e6e6e6;
+    border-radius: 3px;
+    background-color: #f2f2f2;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: auto;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    top: -8px;
+    right: 12px;
+    padding: 3px;
+    color: #555;
+    background-color: #f2f2f299;
+  }
+  pre.src:hover:before { display: inline; margin-top: 14px;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-authinfo::before { content: 'Authinfo'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .equation-container {
+    display: table;
+    text-align: center;
+    width: 100%;
+  }
+  .equation {
+    vertical-align: middle;
+  }
+  .equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { }
+</style>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        displayAlign: "center",
+        displayIndent: "0em",
+
+        "HTML-CSS": { scale: 100,
+                        linebreaks: { automatic: "false" },
+                        webFont: "TeX"
+                       },
+        SVG: {scale: 100,
+              linebreaks: { automatic: "false" },
+              font: "TeX"},
+        NativeMML: {scale: 100},
+        TeX: { equationNumbers: {autoNumber: "AMS"},
+               MultLineWidth: "85%",
+               TagSide: "right",
+               TagIndent: ".8em"
+             }
+});
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS_HTML"></script>
+</head>
+<body>
+<div id="content" class="content">
+<h1 class="title">Set Theory</h1>
+<div id="table-of-contents" role="doc-toc">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents" role="doc-toc">
+<ul>
+<li><a href="#org486cbb9">1. Fundamentals</a>
+<ul>
+<li><a href="#org7d3dd66">1.1. Definition 3.1.1 (Informal)</a></li>
+<li><a href="#orgac09007">1.2. Axiom 3.1 (Sets are objects)</a></li>
+<li><a href="#org9c3e8c2">1.3. Definition 3.1.4 (Equality of sets).</a></li>
+<li><a href="#org7afa79d">1.4. Axiom 3.2 (Empty Set)</a></li>
+<li><a href="#org7c5550e">1.5. Lemma 3.1.6 (Single Choice)</a></li>
+<li><a href="#org6c9aab3">1.6. Axiom 3.3 (Singleton sets and pair sets)</a></li>
+<li><a href="#orgddc8f0e">1.7. Axiom 3.4 (Pairwise union)</a></li>
+<li><a href="#org45c6dbe">1.8. Lemma 3.1.13</a></li>
+<li><a href="#org286f271">1.9. Definition 3.1.15 (Subsets)</a></li>
+<li><a href="#org4bf1036">1.10. Proposition 3.1.18 (Sets are partially ordered by set inclusion).</a></li>
+<li><a href="#orga138b57">1.11. Axiom 3.5 (Axiom of specification).</a></li>
+<li><a href="#orgb3ffcd8">1.12. Definition 3.1.23 (Intersections).</a></li>
+<li><a href="#org767ba38">1.13. Definition 3.1.27 (Difference Sets).</a></li>
+<li><a href="#org17cff22">1.14. Proposition 3.1.28 (Sets form a boolean algebra).</a></li>
+<li><a href="#orgde97feb">1.15. Axiom 3.6 (Replacement)</a></li>
+<li><a href="#orgac38f34">1.16. Axiom 3.7 (Infinity)</a></li>
+</ul>
+</li>
+<li><a href="#orgaddce96">2. Functions</a>
+<ul>
+<li><a href="#org02c4874">2.1. Definition 3.3.1 (Functions)</a></li>
+<li><a href="#org31cc977">2.2. Definition 3.3.7 (Equality of functions).</a></li>
+<li><a href="#orgc53f9fd">2.3. Definition 3.3.10 (Composition).</a></li>
+<li><a href="#org9d935b9">2.4. Lemma 3.3.12 (Composition is associative).</a></li>
+<li><a href="#org67b6c44">2.5. Definition 3.3.14 (One-to-one functions).</a></li>
+<li><a href="#org7019a04">2.6. Definition 3.3.17 (Onto functions).</a></li>
+<li><a href="#orgbc58cbe">2.7. Definition 3.3.20 (Bijective functions)</a></li>
+</ul>
+</li>
+<li><a href="#org3c15221">3. Images and inverse images</a>
+<ul>
+<li><a href="#org6ee39c7">3.1. Definition 3.4.1 (Images of sets).</a></li>
+<li><a href="#org5c272db">3.2. Definition 3.4.3 (Inverse images).</a></li>
+<li><a href="#orgd79aa9e">3.3. Axiom 3.10 (Power set axiom)</a></li>
+<li><a href="#org389b3fe">3.4. Lemma 3.4.9</a></li>
+<li><a href="#orgce08011">3.5. Axiom 3.11 (Union)</a></li>
+</ul>
+</li>
+<li><a href="#orge35a0e1">4. Catesian Product</a>
+<ul>
+<li><a href="#orgf9b4d9c">4.1. Definition 3.5.1 (Ordered Pair).</a></li>
+<li><a href="#org22006d5">4.2. Definition 3.5.4 (Cartesian product).</a></li>
+<li><a href="#org0031b93">4.3. Definition 3.5.7 (Ordered n-tuples and n-fold Cartesian product).</a></li>
+<li><a href="#org7eeeee8">4.4. Lemma 3.5.12 (Finite choice).</a></li>
+</ul>
+</li>
+<li><a href="#orga7a56ff">5. Cardinality of sets</a>
+<ul>
+<li><a href="#orgf21602b">5.1. Definition 3.6.1 (Equal cardinality)</a></li>
+<li><a href="#orge20d234">5.2. Proposition 3.6.4</a></li>
+<li><a href="#orgd9a278e">5.3. Proposition 3.6.5</a></li>
+<li><a href="#org4a58af3">5.4. Proposition 3.6.8 (Uniqueness of cardinality)</a></li>
+<li><a href="#orgefcde89">5.5. Proposition 3.6.9</a></li>
+<li><a href="#orgff34e90">5.6. Definition 3.6.10 (Finite sets)</a></li>
+<li><a href="#org5c6b303">5.7. Theorem 3.6.12</a></li>
+<li><a href="#org2bc5f06">5.8. Proposition 3.6.14 (Cardinal arithmetic).</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+
+
+<div id="outline-container-org486cbb9" class="outline-2">
+<h2 id="org486cbb9"><span class="section-number-2">1.</span> Fundamentals</h2>
+<div class="outline-text-2" id="text-1">
+</div>
+<div id="outline-container-org7d3dd66" class="outline-3">
+<h3 id="org7d3dd66"><span class="section-number-3">1.1.</span> Definition 3.1.1 (Informal)</h3>
+<div class="outline-text-3" id="text-1-1">
+<p>
+We define a set \(\mathbb{A}\) to be any unordered collection of objects, e.g., \(\{3,8,5,2\}\) is a set. If \(x\) is an object,
+we say that \(x\) is an <i>element</i> of \(\mathbb{A}\) or \(x \in \mathbb{A}\) if \(x\) lies in the collection; otherwise we say that
+\(x \notin \mathbb{A}\). For instance, \(3 \in \{1,2,3,4,5\}\)  but \(7 \notin \{1,2,3,4,5\}\).
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgac09007" class="outline-3">
+<h3 id="orgac09007"><span class="section-number-3">1.2.</span> Axiom 3.1 (Sets are objects)</h3>
+<div class="outline-text-3" id="text-1-2">
+<p>
+If \(A\) is a set, then \(A\) is also an object. In particular, given two sets \(A\) and \(B\), it is meaningful to ask whether
+\(A\) is also an element of \(B\).
+</p>
+</div>
+</div>
+
+<div id="outline-container-org9c3e8c2" class="outline-3">
+<h3 id="org9c3e8c2"><span class="section-number-3">1.3.</span> Definition 3.1.4 (Equality of sets).</h3>
+<div class="outline-text-3" id="text-1-3">
+<p>
+Two sets \(A\) and \(B\) are <i>equal</i>, \(A = B\), iff every element of \(A\) is an element of \(B\) and vice versa. To put it another way, \(A = B\) iff every element \(x \in A\) belongs also to \(B\), and every element \(y\) of \(B\) belongs also to \(A\).
+</p>
+</div>
+</div>
+
+<div id="outline-container-org7afa79d" class="outline-3">
+<h3 id="org7afa79d"><span class="section-number-3">1.4.</span> Axiom 3.2 (Empty Set)</h3>
+<div class="outline-text-3" id="text-1-4">
+<p>
+There exists a set \(\phi\), known as the empty set, which contains no elements, i.e., for every object \(x\) we have \(x \notin \phi\).
+</p>
+</div>
+</div>
+
+<div id="outline-container-org7c5550e" class="outline-3">
+<h3 id="org7c5550e"><span class="section-number-3">1.5.</span> Lemma 3.1.6 (Single Choice)</h3>
+<div class="outline-text-3" id="text-1-5">
+<p>
+Let \(A\) be a <i>non-empty</i> set. Then there exists an object \(x\) such that \(x \in A\).
+</p>
+</div>
+</div>
+
+<div id="outline-container-org6c9aab3" class="outline-3">
+<h3 id="org6c9aab3"><span class="section-number-3">1.6.</span> Axiom 3.3 (Singleton sets and pair sets)</h3>
+<div class="outline-text-3" id="text-1-6">
+<p>
+If \(a\) is an object, then there exists a set \(\{a\}\) whose only element is \(a\), i.e., for every object \(y\), we have
+\(y \in \{a\}\) if and only if \(y = a\); we refer to \(\{a\}\) as the singleton set whose element is \(a\).
+Furthermore, if \(a\) and \(b\) are objects, then there exists a set \(\{a, b\}\) whose only elements are \(a\) and \(b\); i.e., for every object \(y\), we have \(y \in \{a, b\}\) if and only if \(y = a \text{ or }\ y = b\); we refer to this set as the pair set formed by \(a\) and \(b\).
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgddc8f0e" class="outline-3">
+<h3 id="orgddc8f0e"><span class="section-number-3">1.7.</span> Axiom 3.4 (Pairwise union)</h3>
+<div class="outline-text-3" id="text-1-7">
+<p>
+Given any two sets \(A,B\), there exists a set \(A \cup B\), called the <i>union</i> \(A \cup B\) of \(A\) and \(B\), whose elements consists of all the elements which belong to \(A\) or \(B\) or both.
+</p>
+
+<p>
+For any object \(x\),
+    \[x \in A \cup B \Leftrightarrow (x \in A \text{ or } x \in B)\].
+</p>
+</div>
+</div>
+
+<div id="outline-container-org45c6dbe" class="outline-3">
+<h3 id="org45c6dbe"><span class="section-number-3">1.8.</span> Lemma 3.1.13</h3>
+<div class="outline-text-3" id="text-1-8">
+<p>
+If \(a\) and \(b\) are objects, then \(\{a,b\} = {a} \cup {b}\). If \(A,B,C\) are sets, then the union operation is <i>commutative</i>
+(i.e., \(A \cup B = B \cup A\)) and <i>associative</i> (i.e. \((A \cup B) \cup C = A \cup (B \cup C)\)). Also, we have
+\(A \cup A = A \cup \phi = \phi \cup A = A\).
+</p>
+</div>
+</div>
+
+<div id="outline-container-org286f271" class="outline-3">
+<h3 id="org286f271"><span class="section-number-3">1.9.</span> Definition 3.1.15 (Subsets)</h3>
+<div class="outline-text-3" id="text-1-9">
+<p>
+Let \(A,B\) be sets. We say that \(A\) is a <i>subset</i> of \(B\), denoted \(A \subseteq B\), iff every element of \(A\) is also an element of \(B\), i.e.
+</p>
+
+<p>
+For any object \(x, x \in A \Rightarrow x \in B\).
+</p>
+
+<p>
+We say that \(A\) is a <i>proper subset</i> of \(B\), denoted \(A \subsetneq B\), if \(A \subset B\) and \(A \neq B\).
+</p>
+</div>
+</div>
+
+<div id="outline-container-org4bf1036" class="outline-3">
+<h3 id="org4bf1036"><span class="section-number-3">1.10.</span> Proposition 3.1.18 (Sets are partially ordered by set inclusion).</h3>
+<div class="outline-text-3" id="text-1-10">
+<p>
+Let \(A,B,C\) be sets. If \(A \subseteq B\) and \(B \subseteq C\) then \(A \subseteq C\). If \(A \subseteq B\) and \(B \subseteq A\), then \(A = B\). Finally, if \(A \subsetneq B\) and \(B \subsetneq C\) then \(A \subsetneq C\).
+</p>
+</div>
+</div>
+
+<div id="outline-container-orga138b57" class="outline-3">
+<h3 id="orga138b57"><span class="section-number-3">1.11.</span> Axiom 3.5 (Axiom of specification).</h3>
+<div class="outline-text-3" id="text-1-11">
+<p>
+Let \(A\) be a set, and for each \(x \in A\), let \(P(x)\) be a property pertaining to \(x\). Then there exists a set, called
+\(\{x \in A : P(x)  \text{ is true } \}\), whose elements are precisely the elements \(x\) in \(A\) for which \(P(x)\) is true. In other words, for any object \(y\),
+</p>
+
+<p>
+\[y \in \{x \in A : P(x) \text{ is true } \} \Leftrightarrow (y \in A \text{ and } P(y) \text{ is true })\].
+</p>
+</div>
+</div>
+
+
+<div id="outline-container-orgb3ffcd8" class="outline-3">
+<h3 id="orgb3ffcd8"><span class="section-number-3">1.12.</span> Definition 3.1.23 (Intersections).</h3>
+<div class="outline-text-3" id="text-1-12">
+<p>
+The <i>intersection</i> \(S_1 \cap S_2\) of two sets is defined to be the set
+</p>
+
+<p>
+\[S_1 \cap S_2 := \{x \in S_1 : x \in S_2 \}\].
+</p>
+
+<p>
+In other words, \(S_1 \cap S_2\) consists of all the elements which belong to both \(S_1\) and \(S_2\).
+</p>
+
+<p>
+Thus, \(\forall x, x \in S_1 \cap S_2 \Leftrightarrow x \in S_1 \text{ and } x \in S_2\).
+</p>
+</div>
+</div>
+
+<div id="outline-container-org767ba38" class="outline-3">
+<h3 id="org767ba38"><span class="section-number-3">1.13.</span> Definition 3.1.27 (Difference Sets).</h3>
+<div class="outline-text-3" id="text-1-13">
+<p>
+Given two sets \(A\) and \(B\), we define set \(A - B\) or \(A \setminus B\) to be the set \(A\) with any elements of \(B\) removed.
+</p>
+
+<p>
+\(A \setminus B := \{x \in A : x \notin B\}\).
+</p>
+</div>
+</div>
+
+
+<div id="outline-container-org17cff22" class="outline-3">
+<h3 id="org17cff22"><span class="section-number-3">1.14.</span> Proposition 3.1.28 (Sets form a boolean algebra).</h3>
+<div class="outline-text-3" id="text-1-14">
+<p>
+Let \(A,B,C\) bet sets, and let \(X\) be a set containing \(A,B,C\) as subsets.
+</p>
+
+<ol class="org-ol">
+<li>(Minimal element) We have \(A \cup \phi = A\) and \(A \cap \phi = A\).</li>
+
+<li>(Maximal element) We have \(A \cup X = X\) and \(A \cap X = A\).</li>
+
+<li>(Identity) We have \(A \cup A = A\) and \(A \cap A = A\).</li>
+
+<li>(Commutativity) We have \(A \cup B = B \cup A\) and \(A \cap B = B \cap A\).</li>
+
+<li>(Associativity) We have \((A \cup B) \cup C = A \cup (B \cup C)\) and \((A \cap B) \cap C = A \cap (B \cap C)\).</li>
+
+<li>(Distributivity) We have \(A \cap (B \cup C) = (A \cap B) \cup (A \cap C)\) and \(A \cup (B \cap C) = (A \cup B) \cap (A \cup C)\).</li>
+
+<li>(Partition) We have \(A \cup (X \setminus A) = X\) and \(A \cap (X \setminus A) = \phi\).</li>
+
+<li>(De Morgan laws) We have \(X \setminus (A \cup B) = (X \setminus A) \cap (X \setminus B)\) and \(X \setminus (A \cap B) = (X \setminus A) \cup (X \setminus B)\).</li>
+</ol>
+</div>
+</div>
+
+<div id="outline-container-orgde97feb" class="outline-3">
+<h3 id="orgde97feb"><span class="section-number-3">1.15.</span> Axiom 3.6 (Replacement)</h3>
+<div class="outline-text-3" id="text-1-15">
+<p>
+Let \(A\) be a set. For any object \(x \in A\), and for any object \(y\), suppose we have a statement \(P(x,y)\) pertaining to \(x\) and \(y\), such that for each \(x \in A\) there is at most one \(y\) for which \(P(x,y)\) is true. Then there exists a set \(\{ y: P(x,y) \text{ is true for some } x \in A\}\), such that for any object \(z\),
+</p>
+
+<p>
+\[z \in \{y: P(x,y) \text{ is true for some } x \in A \} \Leftrightarrow P(x,z) \text{ is true for some } x \in A\].
+</p>
+</div>
+</div>
+
+
+<div id="outline-container-orgac38f34" class="outline-3">
+<h3 id="orgac38f34"><span class="section-number-3">1.16.</span> Axiom 3.7 (Infinity)</h3>
+<div class="outline-text-3" id="text-1-16">
+<p>
+There exists a set \(\mathbb{N}\), whose elements are called <i>natural</i> numbers, as well as an object \(0 \in \mathbb{N}\), and an object \(n++\)
+to every <i>natural</i> number \(n \in \mathbb{N}\), such that <i>Peano axioms</i> hold.
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgaddce96" class="outline-2">
+<h2 id="orgaddce96"><span class="section-number-2">2.</span> Functions</h2>
+<div class="outline-text-2" id="text-2">
+</div>
+<div id="outline-container-org02c4874" class="outline-3">
+<h3 id="org02c4874"><span class="section-number-3">2.1.</span> Definition 3.3.1 (Functions)</h3>
+<div class="outline-text-3" id="text-2-1">
+<p>
+Let \(X,Y\) be sets, and let \(P(x,y)\) be a property pertaining to an object \(x \in X\) and an object \(y \in Y\), such that for every \(x \in X\), there is exactly one \(y \in Y\) for which \(P(x,y)\) is true. Then we define the <i>function</i> \(f: X \rightarrow Y\) <i>defined by</i> \(P\) <i>on the domain</i> \(X\) <i>and range</i> \(Y\) to be the object which, given any input \(x \in X\), assigns an output, \(f(x) \in Y\) defined to be the unique object \(f(x)\) for which \(P(x,f(x))\) is true. Thus for any \(x \in X\) and \(y \in Y\),
+</p>
+
+<p>
+\[y = f(x) \Leftrightarrow P(x,y) \text{ is true }\].
+</p>
+</div>
+</div>
+
+
+<div id="outline-container-org31cc977" class="outline-3">
+<h3 id="org31cc977"><span class="section-number-3">2.2.</span> Definition 3.3.7 (Equality of functions).</h3>
+<div class="outline-text-3" id="text-2-2">
+<p>
+Two functions \(f : X \rightarrow Y\), \(g : X \rightarrow Y\) with the same domain and range are said to be <i>equal</i>, \(f = g\) iff \(f(x) = g(x) \forall x \in X\).
+</p>
+</div>
+</div>
+
+
+<div id="outline-container-orgc53f9fd" class="outline-3">
+<h3 id="orgc53f9fd"><span class="section-number-3">2.3.</span> Definition 3.3.10 (Composition).</h3>
+<div class="outline-text-3" id="text-2-3">
+<p>
+Let \(f : X \rightarrow Y\) and \(g : Y \rightarrow Z\) be two functions, such that the range of \(f\) is the same set as the domain of \(g\).
+Then the <i>composition</i> is defined by \(g \circ f : X \rightarrow Z\) of the two functions \(g\) and \(f\) to be the function
+defined explicitly by the formula
+</p>
+
+<p>
+\[(g \circ f)(x) := g(f(x))\].
+</p>
+</div>
+</div>
+
+<div id="outline-container-org9d935b9" class="outline-3">
+<h3 id="org9d935b9"><span class="section-number-3">2.4.</span> Lemma 3.3.12 (Composition is associative).</h3>
+<div class="outline-text-3" id="text-2-4">
+<p>
+Let \(f : Z \rightarrow W\), \(g : Y \rightarrow Z\) and \(h : X \rightarrow Y\) be <i>functions</i>. Then \(f \circ (g \circ h) = (f \circ g) \circ h\).
+</p>
+</div>
+</div>
+
+
+<div id="outline-container-org67b6c44" class="outline-3">
+<h3 id="org67b6c44"><span class="section-number-3">2.5.</span> Definition 3.3.14 (One-to-one functions).</h3>
+<div class="outline-text-3" id="text-2-5">
+<p>
+A function \(f\) is <i>one-to-one (or injective)</i> if different elements map to different elements.
+</p>
+
+<p>
+\[x \neq x' \Rightarrow f(x) \neq f(x')\].
+</p>
+
+<p>
+Equivalently, a function if <i>one-to-one</i> if
+</p>
+
+<p>
+\[f(x) = f(x') \Rightarrow x = x'\].
+</p>
+</div>
+</div>
+
+
+<div id="outline-container-org7019a04" class="outline-3">
+<h3 id="org7019a04"><span class="section-number-3">2.6.</span> Definition 3.3.17 (Onto functions).</h3>
+<div class="outline-text-3" id="text-2-6">
+<p>
+A functions \(f\) is <i>onto</i> (or <i>surjective</i>) if \(f(X) = Y\), i.e., every element in \(Y\) comes from applying \(f\) to some element in \(X\):
+</p>
+
+<p>
+For every \(y \in Y\), there exists \(x \in X\) such that \(f(x) = y\).
+</p>
+</div>
+</div>
+
+
+<div id="outline-container-orgbc58cbe" class="outline-3">
+<h3 id="orgbc58cbe"><span class="section-number-3">2.7.</span> Definition 3.3.20 (Bijective functions)</h3>
+<div class="outline-text-3" id="text-2-7">
+<p>
+Functions \(f : X \rightarrow Y\) which are both <i>one-to-one</i> and <i>onto</i> are also called <i>bijective</i> or <i>invertible</i>.
+</p>
+</div>
+</div>
+</div>
+
+
+<div id="outline-container-org3c15221" class="outline-2">
+<h2 id="org3c15221"><span class="section-number-2">3.</span> Images and inverse images</h2>
+<div class="outline-text-2" id="text-3">
+</div>
+<div id="outline-container-org6ee39c7" class="outline-3">
+<h3 id="org6ee39c7"><span class="section-number-3">3.1.</span> Definition 3.4.1 (Images of sets).</h3>
+<div class="outline-text-3" id="text-3-1">
+<p>
+If \(f : X \rightarrow Y\) is a function from \(X\) to \(Y\), and \(S\) is a set in \(X\), we define \(f(S)\) to be the set
+</p>
+
+<p>
+\[f(S) := \{f(x) : x \in S\}\].
+</p>
+
+<p>
+\(f(S)\) is a subset of \(Y\), and is sometimes called the <i>image</i> of \(S\) under the map \(f\).
+</p>
+</div>
+</div>
+
+
+<div id="outline-container-org5c272db" class="outline-3">
+<h3 id="org5c272db"><span class="section-number-3">3.2.</span> Definition 3.4.3 (Inverse images).</h3>
+<div class="outline-text-3" id="text-3-2">
+<p>
+If \(U\) is a subset of \(Y\), we define the set \(f^{-1}(U)\) to be the set
+</p>
+
+<p>
+\[f^{-1}(U) := \{x \in X : f(x) \in U \}\].
+</p>
+
+<p>
+\[f(x) \in U \Leftrightarrow x \in f^{-1}(U)\].
+</p>
+
+<p>
+\(f^{-1}(U)\) is known as <i>inverse image</i> of \(U\).
+</p>
+</div>
+</div>
+
+
+<div id="outline-container-orgd79aa9e" class="outline-3">
+<h3 id="orgd79aa9e"><span class="section-number-3">3.3.</span> Axiom 3.10 (Power set axiom)</h3>
+<div class="outline-text-3" id="text-3-3">
+<p>
+Let \(X\) and \(Y\) be sets. Then there exists a set, denoted \(Y^X\), which consists of all the functions from \(X\) to \(Y\),
+thus
+</p>
+
+<p>
+\[f \in Y^X \Leftrightarrow (f \text{ is a function with domain } X \text{ and range } Y)\].
+</p>
+</div>
+</div>
+
+
+<div id="outline-container-org389b3fe" class="outline-3">
+<h3 id="org389b3fe"><span class="section-number-3">3.4.</span> Lemma 3.4.9</h3>
+<div class="outline-text-3" id="text-3-4">
+<p>
+Let \(X\) be a set. Then the set
+</p>
+
+<p>
+            \[\{Y : Y \text{ is a subset of } X \}\].
+is a set.
+</p>
+</div>
+</div>
+
+
+<div id="outline-container-orgce08011" class="outline-3">
+<h3 id="orgce08011"><span class="section-number-3">3.5.</span> Axiom 3.11 (Union)</h3>
+<div class="outline-text-3" id="text-3-5">
+<p>
+Let \(A\) be a set, all of whose <i>elements</i> are themeselves set. Then there exists a set \(\bigcup A\) whose element are precisely those objects which are elements of the elements of \(A\), thus <i>for all objects</i> \(x\)
+</p>
+
+<p>
+\[x \in \bigcup A \Leftrightarrow (x \in S \text{ for some } S \in A)\].
+</p>
+</div>
+</div>
+</div>
+
+
+<div id="outline-container-orge35a0e1" class="outline-2">
+<h2 id="orge35a0e1"><span class="section-number-2">4.</span> Catesian Product</h2>
+<div class="outline-text-2" id="text-4">
+</div>
+<div id="outline-container-orgf9b4d9c" class="outline-3">
+<h3 id="orgf9b4d9c"><span class="section-number-3">4.1.</span> Definition 3.5.1 (Ordered Pair).</h3>
+<div class="outline-text-3" id="text-4-1">
+<p>
+If \(x\) and \(y\) are any objects (possibly equal), we define <i>ordered pair</i> \((x,y)\) to be a new object, consisting of \(x\) as its first component and \(y\) as its second component. Two ordered pairs \((x,y)\) and \((x',y')\) are considered equal iff both their components match, i.e.
+</p>
+
+<p>
+\[(x,y) = (x',y') \Leftrightarrow (x = x' \text{ and } y = y')\].
+</p>
+</div>
+</div>
+
+
+<div id="outline-container-org22006d5" class="outline-3">
+<h3 id="org22006d5"><span class="section-number-3">4.2.</span> Definition 3.5.4 (Cartesian product).</h3>
+<div class="outline-text-3" id="text-4-2">
+<p>
+If \(X\) and \(Y\) are sets, then we define <i>cartesian product</i> \(X \times Y\) to be collection of ordered pairs, whose first component lies in \(X\) and second component lies in \(Y\), thus
+</p>
+
+<p>
+\[ X \times Y = \{ (x,y) : x \in X, y \in Y\}\].
+</p>
+
+<p>
+or equivalently
+</p>
+
+<p>
+\[a \in (X \times Y) \Leftrightarrow (a = (x,y) \text{ for some } x \in X \text{ and } y \in Y)\].
+</p>
+</div>
+</div>
+
+
+<div id="outline-container-org0031b93" class="outline-3">
+<h3 id="org0031b93"><span class="section-number-3">4.3.</span> Definition 3.5.7 (Ordered n-tuples and n-fold Cartesian product).</h3>
+<div class="outline-text-3" id="text-4-3">
+<p>
+Let \(n\) be a natural number. An <i>ordered n-tuple</i> \((x_i)_{1 \leq i \leq n}\) is a collection of objects \(x_i\), one for every natural number \(i\) between \(1\) and \(n\); we refer to \(x_i\) as the \(i^{th}\) component of the ordered n-tuple.
+</p>
+
+<p>
+\((x_i)_{1 \leq i \leq n} = (y_i)_{1 \leq i \leq n}\) iff \(x_i = y_i \forall 1 \leq i \leq n\).
+</p>
+
+
+<p>
+If \((X_i)_{1 \leq i \leq n}\) is an ordered <i>n-tuple</i> of sets, we define their <i>cartesian product</i>
+</p>
+
+<p>
+\[\prod_{1 \leq i \leq n} X_i := \{(x_i)_{1 \leq i \leq n} : x_i \in X_i \text{ } \forall 1 \leq i \leq n \}\].
+</p>
+</div>
+</div>
+
+
+<div id="outline-container-org7eeeee8" class="outline-3">
+<h3 id="org7eeeee8"><span class="section-number-3">4.4.</span> Lemma 3.5.12 (Finite choice).</h3>
+<div class="outline-text-3" id="text-4-4">
+<p>
+Let \(n \geq 1\) be a <i>natural number</i>, and  for each <i>natural number</i> \(1 \leq i \leq n\), let \(X_i\) be a <i>non-empty set</i>. Then there exists an n-tuple \((x_i)_{1 \leq i \leq n}\) such that \(x_i \in X_i \forall 1 \leq i \leq n\). In other words, if each \(X_i\) is non-empty, then the set \(\prod_{1 \leq i \leq n} X_i\) is also non-empty.
+</p>
+</div>
+</div>
+</div>
+
+
+<div id="outline-container-orga7a56ff" class="outline-2">
+<h2 id="orga7a56ff"><span class="section-number-2">5.</span> Cardinality of sets</h2>
+<div class="outline-text-2" id="text-5">
+</div>
+<div id="outline-container-orgf21602b" class="outline-3">
+<h3 id="orgf21602b"><span class="section-number-3">5.1.</span> Definition 3.6.1 (Equal cardinality)</h3>
+<div class="outline-text-3" id="text-5-1">
+<p>
+We say that two sets \(X\) and \(Y\) have <i>equal cardinality</i> iff there exists a bijection \(f : X \rightarrow Y\) from \(X\) to \(Y\).
+</p>
+</div>
+</div>
+
+<div id="outline-container-orge20d234" class="outline-3">
+<h3 id="orge20d234"><span class="section-number-3">5.2.</span> Proposition 3.6.4</h3>
+<div class="outline-text-3" id="text-5-2">
+<p>
+Let \(X,Y,Z\) be sets. Then \(X\) has <i>equal cardinality</i> with \(X\). If \(X\) has <i>equal cardinality</i> with \(Y\), then
+\(Y\) has <i>equal cardinality</i> with \(X\). If \(X\) has <i>equal cardinality</i> with \(Y\) and \(Y\) has <i>equal cardinality</i> with \(Z\), then \(X\) has <i>equal cardinality</i> with \(Z\).
+</p>
+</div>
+</div>
+
+
+<div id="outline-container-orgd9a278e" class="outline-3">
+<h3 id="orgd9a278e"><span class="section-number-3">5.3.</span> Proposition 3.6.5</h3>
+<div class="outline-text-3" id="text-5-3">
+<p>
+Let \(n\) be a natural number. A set \(X\) is said to have <i>cardinality</i> \(n\), iff it has <i>equal cardinality</i> with \(\{i \in \mathbb{N} : 1 \leq i \leq n\}\) . We also say that \(X\) has an elements iff it has cardinality n.
+</p>
+</div>
+</div>
+
+
+<div id="outline-container-org4a58af3" class="outline-3">
+<h3 id="org4a58af3"><span class="section-number-3">5.4.</span> Proposition 3.6.8 (Uniqueness of cardinality)</h3>
+<div class="outline-text-3" id="text-5-4">
+<p>
+Let \(X\) be a set with some cardinality \(n\). Then \(X\) cannot have any other cardinality, i.e., \(X\) cannot have any other cardinality, i.e., \(X\) cannot have <i>cardinality</i> \(m\) for \(m \neq n\).
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgefcde89" class="outline-3">
+<h3 id="orgefcde89"><span class="section-number-3">5.5.</span> Proposition 3.6.9</h3>
+<div class="outline-text-3" id="text-5-5">
+<p>
+Suppose that \(n \geq 1\), and \(X\) has cardinality \(n\). Then \(X\) is <i>non-empty</i>, and if \(x\) is any element of \(X\), then the set \(X - \{x\}\) (i.e. \(X\) with element \(x\) removed) has <i>cardinality</i> \(n - 1\).
+</p>
+</div>
+</div>
+
+
+<div id="outline-container-orgff34e90" class="outline-3">
+<h3 id="orgff34e90"><span class="section-number-3">5.6.</span> Definition 3.6.10 (Finite sets)</h3>
+<div class="outline-text-3" id="text-5-6">
+<p>
+A set is <i>finite</i> iff it has cardinality \(n\) for some natural number \(n\); otherwise, the set is called <i>infinite</i>. If \(X\) is a finite set, we use \(\#(X)\) to denote the cardinality of \(X\).
+</p>
+</div>
+</div>
+
+<div id="outline-container-org5c6b303" class="outline-3">
+<h3 id="org5c6b303"><span class="section-number-3">5.7.</span> Theorem 3.6.12</h3>
+<div class="outline-text-3" id="text-5-7">
+<p>
+The set of natural numbers \(N\) is inifinite.
+</p>
+</div>
+</div>
+
+
+<div id="outline-container-org2bc5f06" class="outline-3">
+<h3 id="org2bc5f06"><span class="section-number-3">5.8.</span> Proposition 3.6.14 (Cardinal arithmetic).</h3>
+<div class="outline-text-3" id="text-5-8">
+<ol class="org-ol">
+<li>Let \(X\) be a finite set, and let \(x\) be an object which is not an element of \(X\). Then \(X \cup \{x\}\) is finite and \(\#(X \cup \{x\}) = \#(X) + 1\).</li>
+
+<li>Let \(X\) and \(Y\) be finite sets. Then \(X \cup Y\) is finite and \(\# (X \cup Y) \geq \# (X) + \# (Y)\). If in addition \(X\) and \(Y\) are <i>disjoint</i> (i.e., \(X \cap Y = \phi\)), then \(\#(X \cup Y) = \#(X) + \#(Y)\).</li>
+
+<li>Let \(X\) be a finite set, and \(Y\) be a subset of \(X\). Then \(Y\) is finite, and \(\# (Y) \leq \# (X)\). If in addition \(Y \neq X\), then we have \(\# (Y) < \#(X)\).</li>
+
+<li>If \(X\) is a finite set, and \(f : X \rightarrow Y\) is a function, then \(f(X)\) is a finite set with \(\# (f(X)) \leq \# (X)\). If in addition \(f\) is <i>one-to-one</i>, then \(\# (f(X)) = \# (X)\).</li>
+
+<li>Let \(X\) and \(Y\) be finite sets. Then cartesian product \(X \times Y\) is finite and \(\# (X \times Y) = \# (X) \times \# (Y)\).</li>
+
+<li>Let \(X\) and \(Y\) be finite sets. Then the set \(Y^{X}\) is finite and \(\# (Y^{X}) = \# (Y)^{\# (X)}\).</li>
+</ol>
+</div>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="author">Author: John Doe</p>
+<p class="date">Created: 2022-04-16 Sat 15:34</p>
+</div>
+</body>
+</html>

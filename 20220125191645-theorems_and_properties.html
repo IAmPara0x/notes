@@ -1,0 +1,841 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2022-02-06 Sun 20:20 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Theorems And Properties (The Real Number System)</title>
+<meta name="author" content="IAmParadox" />
+<meta name="generator" content="Org Mode" />
+<style>
+  #content { max-width: 60em; margin: auto; }
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #e6e6e6;
+    border-radius: 3px;
+    background-color: #f2f2f2;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: auto;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    top: -8px;
+    right: 12px;
+    padding: 3px;
+    color: #555;
+    background-color: #f2f2f299;
+  }
+  pre.src:hover:before { display: inline; margin-top: 14px;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-authinfo::before { content: 'Authinfo'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .equation-container {
+    display: table;
+    text-align: center;
+    width: 100%;
+  }
+  .equation {
+    vertical-align: middle;
+  }
+  .equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { width: 90%; }
+</style>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        displayAlign: "center",
+        displayIndent: "0em",
+
+        "HTML-CSS": { scale: 100,
+                        linebreaks: { automatic: "false" },
+                        webFont: "TeX"
+                       },
+        SVG: {scale: 100,
+              linebreaks: { automatic: "false" },
+              font: "TeX"},
+        NativeMML: {scale: 100},
+        TeX: { equationNumbers: {autoNumber: "AMS"},
+               MultLineWidth: "85%",
+               TagSide: "right",
+               TagIndent: ".8em"
+             }
+});
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS_HTML"></script>
+</head>
+<body>
+<div id="content" class="content">
+<h1 class="title">Theorems And Properties (The Real Number System)</h1>
+<div id="table-of-contents" role="doc-toc">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents" role="doc-toc">
+<ul>
+<li><a href="#orgdd15ac6">1. 1.2 Ordered Field Axioms</a>
+<ul>
+<li><a href="#org535a5b0">1.1. Posutlate 1. [Field Axioms]</a></li>
+<li><a href="#org3a15a00">1.2. Posutlate 2. [Order Axioms]</a></li>
+</ul>
+</li>
+<li><a href="#org67a6071">2. 1.1 Remark</a></li>
+<li><a href="#org1f02e17">3. 1.5 Remark</a></li>
+<li><a href="#orgea77ab6">4. 1.6 Theorem [Fundametal Theorem Of Absolute Value]</a></li>
+<li><a href="#org8036796">5. 1.7 Theorem</a></li>
+<li><a href="#orga5f3b3a">6. 1.9 Theorem.</a></li>
+<li><a href="#orge29a402">7. 1.10 Definition</a></li>
+<li><a href="#orgb16d9a5">8. 1.12 Remark</a></li>
+<li><a href="#orgf0934c9">9. 1.13 Remark</a></li>
+<li><a href="#orgd195ebc">10. 1.14 Theorem [Approximation Property For Suprema].</a></li>
+<li><a href="#orgcd59df7">11. 1.15 Theorem:</a></li>
+<li><a href="#org43ac24d">12. Posutlate 3. [Completeness Axiom].</a></li>
+<li><a href="#org94703b9">13. 1.16 Theorem [Archimedean Principle]</a></li>
+<li><a href="#orgd9ae947">14. 1.18 Theorem: [Density Of Rationals]</a></li>
+<li><a href="#org1a562a8">15. 1.19 Definition</a></li>
+<li><a href="#orgd5d0a32">16. 1.20 Theorem [Reflection Principle]</a></li>
+<li><a href="#org74aace0">17. 1.21 Theorem [Monotone Property]</a></li>
+<li><a href="#orgaabef94">18. 1.22 Theorem [Well-Ordering Principle]</a></li>
+<li><a href="#org075bafe">19. 1.23 Theorem</a></li>
+<li><a href="#org9df91d5">20. 1.25 Lemma</a></li>
+<li><a href="#org57329c9">21. 1.26 Theorem [Binomial Formula]</a></li>
+<li><a href="#org8d8ad44">22. 1.27 Remark</a></li>
+<li><a href="#orgb62a2f5">23. 1.28 Remark</a></li>
+<li><a href="#orga0466f3">24. 1.29 Definition</a></li>
+<li><a href="#org73d0ff5">25. 1.30 Theorem</a></li>
+<li><a href="#orge8bd2c8">26. 1.31 Remark</a></li>
+<li><a href="#org2643b91">27. 1.33 Definition</a></li>
+<li><a href="#orga6b10af">28. 1.35 Definition</a></li>
+<li><a href="#org660d56a">29. 1.36 Theorem [DeMorGan&rsquo;s Laws]</a></li>
+<li><a href="#org3a6bed7">30. 1.37 Theorem</a></li>
+<li><a href="#org3929d3e">31. 1.38 Definition</a></li>
+<li><a href="#orgadaffd6">32. 1.39 Remark [Cantor&rsquo;s Diagonalization Argument].</a></li>
+<li><a href="#org61edff9">33. 1.40 Lemma</a></li>
+<li><a href="#org71d2fea">34. 1.41 Theorem.</a></li>
+<li><a href="#orgd8a4464">35. 1.42 Theorem</a></li>
+<li><a href="#org9ba1e1e">36. 1.43 Remark.</a></li>
+<li><a href="#orgbb92321">37. Extra Remarks</a>
+<ul>
+<li><a href="#orgfbd30fa">37.1. [Density of Irrationals]</a></li>
+<li><a href="#org2885f50">37.2. [Approximation Property of Infima]</a></li>
+<li><a href="#org7e44132">37.3. [Completeness Property For Infima]</a></li>
+<li><a href="#org659833c">37.4. Theorem</a></li>
+</ul>
+</li>
+<li><a href="#org51ec606">38. My Remarks</a></li>
+</ul>
+</div>
+</div>
+
+
+<div id="outline-container-orgdd15ac6" class="outline-2">
+<h2 id="orgdd15ac6"><span class="section-number-2">1.</span> 1.2 Ordered Field Axioms</h2>
+<div class="outline-text-2" id="text-1">
+</div>
+<div id="outline-container-org535a5b0" class="outline-3">
+<h3 id="org535a5b0"><span class="section-number-3">1.1.</span> Posutlate 1. [Field Axioms]</h3>
+<div class="outline-text-3" id="text-1-1">
+<p>
+\(a,b,c \in \mathbb{R}\)
+</p>
+
+<ol class="org-ol">
+<li>Closure Properties:  \(a + b \in \mathbb{R}\) and \(a \times b \in \mathbb{R}\)</li>
+<li>Associative Properties: \(a + (b + c) = (a + b) + c\) and  \(a \times (b \times c) = (a \times b) \times c\)</li>
+<li>Commutative Properties: \(a + b = b + a\) and \(a \times b = b \times a\)</li>
+<li>Distributive Law: \(a \times (b + c) = a \times b + a \times c\)</li>
+<li>Existence of the Additive Identity: \(0 \in \mathbb{R}\) such that \(0 + a = a, \forall a \in \mathbb{}\)</li>
+<li>Existence of the Multiplicative Identity: \(1 \in \mathbb{R}\) such that \(1 \neq 0\) and \(1 \times a = a, \forall a \in \mathbb{R}\)</li>
+<li>Existence of Additive Inverses: For every \(a \in \mathbb{R}\) there is a unique element \(-a\in \mathbb{R}\) such that \(a + (-a) = 0\)</li>
+<li>Existence of Multiplicative Inverses: For every \(a \in \mathbb{R}\) there is a unique element \(a^{-1}\in \mathbb{R}\) such that \(a \times (a^{-1}) = 0\)</li>
+</ol>
+</div>
+</div>
+
+<div id="outline-container-org3a15a00" class="outline-3">
+<h3 id="org3a15a00"><span class="section-number-3">1.2.</span> Posutlate 2. [Order Axioms]</h3>
+<div class="outline-text-3" id="text-1-2">
+<p>
+There is a relation \(<\) on \(\mathbb{R} \times \mathbb{R}\) that has following properties:
+</p>
+
+<ol class="org-ol">
+<li>Trichotomy Property: \(a,b\in\mathbb{R}\) one and only one of the following statements holds:
+\(a < b\), \(b < a\) or \(a = b\)</li>
+
+<li>Transitive Property: For \(a,b,c \in \mathbb{R}\)
+\(a < b\) and \(b < c\) \(\Rightarrow a < c\)</li>
+
+<li>The Additive Property: For \(a,b,c \in \mathbb{R}\),
+\(a < b\) and \(c \in \mathbb{R} \Rightarrow a + c < b + c\)</li>
+
+<li>The Multiplicative Properties: For \(a,b,c \in \mathbb{R}\),
+\(a < b\) and \(c > 0 \Rightarrow a \times c < b \times c\)
+\(a < b\) and \(c < 0 \Rightarrow b \times c < a \times c\)</li>
+</ol>
+</div>
+</div>
+</div>
+
+
+<div id="outline-container-org67a6071" class="outline-2">
+<h2 id="org67a6071"><span class="section-number-2">2.</span> 1.1 Remark</h2>
+<div class="outline-text-2" id="text-2">
+<ol class="org-ol">
+<li>\(n,m \in \mathbb{Z} \Rightarrow n+m, n-m, n\times m \in \mathbb{Z}\)</li>
+<li>\(n \in \mathbb{Z} \Rightarrow n \in \mathbb{N}\) if and only if \(n \ge 1\)</li>
+<li>There is no \(n \in \mathbb{Z}\) that satisfies \(0 < n < 1\)</li>
+</ol>
+</div>
+</div>
+
+<div id="outline-container-org1f02e17" class="outline-2">
+<h2 id="org1f02e17"><span class="section-number-2">3.</span> 1.5 Remark</h2>
+<div class="outline-text-2" id="text-3">
+<p>
+The absolute value is multiplicative i.e \(|a\times b| = |a| |b|\)
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgea77ab6" class="outline-2">
+<h2 id="orgea77ab6"><span class="section-number-2">4.</span> 1.6 Theorem [Fundametal Theorem Of Absolute Value]</h2>
+<div class="outline-text-2" id="text-4">
+<p>
+Let \(a \in \mathbb{R}\) and \(0 \leq M\) . Then \(|a| \leq M\) if and only if \(-M \leq a \leq M\)
+</p>
+</div>
+</div>
+
+<div id="outline-container-org8036796" class="outline-2">
+<h2 id="org8036796"><span class="section-number-2">5.</span> 1.7 Theorem</h2>
+<div class="outline-text-2" id="text-5">
+<p>
+The absolute value statisfies the following three properties:
+</p>
+
+<ol class="org-ol">
+<li>[Positive Definite] For all \(a \in \mathbb{R}\), \(|a| \geq 0\) with \(|a| = 0\) if and only if \(a = 0\)</li>
+<li>[Symmetric] For all \(a,b \in \mathbb{R}, |a - b| = |b - a|\)</li>
+<li>[Triangle Ineqalities] For all \(a,b \in \mathbb{R}\),
+\(|a + b| \leq |a| + |b|\) and \(||a| - |b|| \leq |a - b|\)</li>
+</ol>
+</div>
+</div>
+
+<div id="outline-container-orga5f3b3a" class="outline-2">
+<h2 id="orga5f3b3a"><span class="section-number-2">6.</span> 1.9 Theorem.</h2>
+<div class="outline-text-2" id="text-6">
+<p>
+Let \(x,y,a, \in \mathbb{R}\)
+</p>
+
+<ol class="org-ol">
+<li>\(x < y + \epsilon, \forall \epsilon > 0\) if and only if \(x \leq y\)</li>
+<li>\(x > y - \epsilon, \forall \epsilon > 0\) if and only if \(x \geq y\)</li>
+<li>\(|a| < \epsilon, \forall \epsilon > 0\) if and only if \(a = 0\)</li>
+</ol>
+</div>
+</div>
+
+<div id="outline-container-orge29a402" class="outline-2">
+<h2 id="orge29a402"><span class="section-number-2">7.</span> 1.10 Definition</h2>
+<div class="outline-text-2" id="text-7">
+<p>
+Let \(\mathbb{E} \subset \mathbb{R}\) be nonempty.
+</p>
+
+<ol class="org-ol">
+<li>The set \(\mathbb{E}\) is said to be bounded above if and only if there is an \(M \in \mathbb{R}\) such
+that \(a \leq M, \forall a \in \mathbb{E}\), in which case \(M\) is called an upper bound of \(\mathbb{E}\).</li>
+
+<li>A number \(s\) is called a supremum of the set \(\mathbb{E}\) if and only if \(s\) is an upper
+bound of \(\mathbb{E}\) and \(s \leq M, \forall M \in \mathbb{R}\) for all upper bounds \(M\) of \(\mathbb{E}\).</li>
+</ol>
+</div>
+</div>
+
+<div id="outline-container-orgb16d9a5" class="outline-2">
+<h2 id="orgb16d9a5"><span class="section-number-2">8.</span> 1.12 Remark</h2>
+<div class="outline-text-2" id="text-8">
+<p>
+If a set has one upper bound, it has infinitely many upper bounds.
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgf0934c9" class="outline-2">
+<h2 id="orgf0934c9"><span class="section-number-2">9.</span> 1.13 Remark</h2>
+<div class="outline-text-2" id="text-9">
+<p>
+If a set has a supremum, then it has only one supremum.
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgd195ebc" class="outline-2">
+<h2 id="orgd195ebc"><span class="section-number-2">10.</span> 1.14 Theorem [Approximation Property For Suprema].</h2>
+<div class="outline-text-2" id="text-10">
+<p>
+If \(\mathbb{E}\) has a finite supremum and \(\epsilon > 0\) is any positive number, then there is a
+point \(a \in \mathbb{E}\) such that
+    sup\(\mathbb{E} - \epsilon < a \leq\) sup\(\mathbb{E}\)
+</p>
+</div>
+</div>
+
+
+<div id="outline-container-orgcd59df7" class="outline-2">
+<h2 id="orgcd59df7"><span class="section-number-2">11.</span> 1.15 Theorem:</h2>
+<div class="outline-text-2" id="text-11">
+<p>
+If \(\mathbb{E} \in \mathbb{Z}\) has a supremum, then sup\(\mathbb{E} \in \mathbb{E}\). In particular, if the supremum of a set, which contains only integers, exists, that supremum must be an integer.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org43ac24d" class="outline-2">
+<h2 id="org43ac24d"><span class="section-number-2">12.</span> Posutlate 3. [Completeness Axiom].</h2>
+<div class="outline-text-2" id="text-12">
+<p>
+If \(E\) is a nonempty subset of \(\mathbb{R}\) that is bounded above, then \(\mathbb{E}\) has finite supremum.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org94703b9" class="outline-2">
+<h2 id="org94703b9"><span class="section-number-2">13.</span> 1.16 Theorem [Archimedean Principle]</h2>
+<div class="outline-text-2" id="text-13">
+<p>
+Given \(a,b \in \mathbb{R}\), with \(a > 0\), there is an integer \(n \in \mathbb{N}\) such that \(b < n \times a\).
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgd9ae947" class="outline-2">
+<h2 id="orgd9ae947"><span class="section-number-2">14.</span> 1.18 Theorem: [Density Of Rationals]</h2>
+<div class="outline-text-2" id="text-14">
+<p>
+If \(a,b \in \mathbb{R}\) statisfy \(a < b \Rightarrow q \in \mathbb{Q}\) such that \(a < q < b\).
+</p>
+</div>
+</div>
+
+<div id="outline-container-org1a562a8" class="outline-2">
+<h2 id="org1a562a8"><span class="section-number-2">15.</span> 1.19 Definition</h2>
+<div class="outline-text-2" id="text-15">
+<p>
+Let \(\mathbb{E} \subset \mathbb{R}\) be nonempty.
+</p>
+
+<ol class="org-ol">
+<li>The set \(\mathbb{E}\) is said to be bounded below if and only if there is an \(M \in \mathbb{R}\) such
+that \(a \geq M, \forall a \in \mathbb{E}\), in which case \(M\) is called a lower bound of \(\mathbb{E}\).</li>
+
+<li>A number \(s\) is called a infimum of the set \(\mathbb{E}\) if and only if \(s\) is a lower
+bound of \(\mathbb{E}\) and \(s \geq M, \forall M \in \mathbb{R}\) for all lower bounds \(M\) of \(\mathbb{E}\).</li>
+</ol>
+</div>
+</div>
+
+<div id="outline-container-orgd5d0a32" class="outline-2">
+<h2 id="orgd5d0a32"><span class="section-number-2">16.</span> 1.20 Theorem [Reflection Principle]</h2>
+<div class="outline-text-2" id="text-16">
+<p>
+Let \(\mathbb{E} \subseteq \mathbb{R}\) be nonempty.
+</p>
+
+<ol class="org-ol">
+<li>\(\mathbb{E}\) has a supremum if and only if \(-\mathbb{E}\) has an infimum,in which case
+inf(\(-\mathbb{E}\)) = -sup\(\mathbb{E}\)</li>
+
+<li>\(\mathbb{E}\) has an infimum if and only if \(-\mathbb{E}\) has a supremum, in which case
+sup(-\(\mathbb{E}\)) = -inf\(\mathbb{E}\)</li>
+</ol>
+</div>
+</div>
+
+<div id="outline-container-org74aace0" class="outline-2">
+<h2 id="org74aace0"><span class="section-number-2">17.</span> 1.21 Theorem [Monotone Property]</h2>
+<div class="outline-text-2" id="text-17">
+<p>
+Suppose \(\mathbb{A} \subseteq \mathbb{B}\)  are nonempty subsets of \(\mathbb{R}\).
+</p>
+
+<ol class="org-ol">
+<li>If \(\mathbb{B}\) has a supremum, then sup\(\mathbb{A} \leq\) sup\(\mathbb{B}\)</li>
+<li>If \(\mathbb{B}\) has a infimum, then sup\(\mathbb{A} \geq\) sup\(\mathbb{B}\)</li>
+</ol>
+</div>
+</div>
+
+<div id="outline-container-orgaabef94" class="outline-2">
+<h2 id="orgaabef94"><span class="section-number-2">18.</span> 1.22 Theorem [Well-Ordering Principle]</h2>
+<div class="outline-text-2" id="text-18">
+<p>
+If \(\mathbb{E}\) is a nonempty subset of \(\mathbb{N}\), then \(\mathbb{E}\) has a least element (i.e \(\mathbb{E}\) has a finite infimum and inf\(\mathbb{E} \in \mathbb{E}\))
+</p>
+</div>
+</div>
+
+<div id="outline-container-org075bafe" class="outline-2">
+<h2 id="org075bafe"><span class="section-number-2">19.</span> 1.23 Theorem</h2>
+<div class="outline-text-2" id="text-19">
+<p>
+Suppose for each \(n \in \mathbb{n}\) that \(A(n)\) is a proposition (i.e a verbal statement or formula) which satisfies the following properties:
+</p>
+<ol class="org-ol">
+<li>\(A(1)\) is true</li>
+<li>For every \(n \in \mathbb{N}\) for which \(A(n)\) is true, \(A(n+1)\) is also true.</li>
+</ol>
+<p>
+Then \(A(n)\) is true for all \(n \in \mathbb{N}\).
+</p>
+</div>
+</div>
+
+<div id="outline-container-org9df91d5" class="outline-2">
+<h2 id="org9df91d5"><span class="section-number-2">20.</span> 1.25 Lemma</h2>
+<div class="outline-text-2" id="text-20">
+<p>
+If \(n,k \in \mathbb{N}\) and \(1 \le k \le n\) then
+    \(\left(\frac{n + 1}{k}\right)\) = \(\left(\frac{n}{k - 1}\right) + \left(\frac{n}{k}\right)\)
+</p>
+</div>
+</div>
+
+<div id="outline-container-org57329c9" class="outline-2">
+<h2 id="org57329c9"><span class="section-number-2">21.</span> 1.26 Theorem [Binomial Formula]</h2>
+<div class="outline-text-2" id="text-21">
+<p>
+If \(a,b \in \mathbb{R}, n \in \mathbb{N}\) and \(0^0\) is interpreted to be 1, then
+\((a + b)^n = \sum_{k=0}^n \left(\frac{n}{k}\right)a^{n-k}b^k\)
+</p>
+</div>
+</div>
+
+<div id="outline-container-org8d8ad44" class="outline-2">
+<h2 id="org8d8ad44"><span class="section-number-2">22.</span> 1.27 Remark</h2>
+<div class="outline-text-2" id="text-22">
+<p>
+If \(x > 1\) and \(x \not\in \mathbb{N}\) then there is an \(n \in \mathbb{N}\) such that \(n < x < n+1\).
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgb62a2f5" class="outline-2">
+<h2 id="orgb62a2f5"><span class="section-number-2">23.</span> 1.28 Remark</h2>
+<div class="outline-text-2" id="text-23">
+<p>
+If \(n \in \mathbb{N}\) is not a perfect square (i.e if there is no \(m \in \mathbb{N}\) such that \(n = m^2\)), then \(\sqrt{n}\) is irrational.
+</p>
+</div>
+</div>
+
+<div id="outline-container-orga0466f3" class="outline-2">
+<h2 id="orga0466f3"><span class="section-number-2">24.</span> 1.29 Definition</h2>
+<div class="outline-text-2" id="text-24">
+<p>
+Let \(X\) and \(Y\) be sets and \(f : X \rightarrow Y\)
+</p>
+<ol class="org-ol">
+<li>\(f\) is said to be 1-1 (one-to-one or an Injection) if and only if
+\(x_1,x_2 \in X\) and \(f(x_1) = f(x_2) \Rightarrow x_1 = x_2\)</li>
+<li>\(f\) is said to be onto (or a surjection) if and only if for each \(y \in Y\) there is an \(x \in X\) such that \(y = f(x)\).</li>
+<li>\(f\) is called a bijection if and only if it is both 1-1 and onto.</li>
+</ol>
+</div>
+</div>
+
+<div id="outline-container-org73d0ff5" class="outline-2">
+<h2 id="org73d0ff5"><span class="section-number-2">25.</span> 1.30 Theorem</h2>
+<div class="outline-text-2" id="text-25">
+<p>
+Let \(X\) and \(Y\) be sets and \(f: X \rightarrow Y\). Then the following three statements are equivalent.
+</p>
+<ol class="org-ol">
+<li>\(f\) has an inverse.</li>
+<li>\(f\) is 1-1 from \(X\) and \(Y\).</li>
+<li>There is a function \(g: X \rightarrow Y\) such that
+\(g(f(x)) = x, \forall x \in X\)
+and
+\(f(g(y)) = y, \forall y \in Y\)</li>
+</ol>
+</div>
+</div>
+
+<div id="outline-container-orge8bd2c8" class="outline-2">
+<h2 id="orge8bd2c8"><span class="section-number-2">26.</span> 1.31 Remark</h2>
+<div class="outline-text-2" id="text-26">
+<p>
+Let \(I\) be an interval and let \(f : I \rightarrow \mathbb{R}\). If the derivative of \(f\) is either always positve on \(I\),
+or always negative on \(I\), then \(f\) is 1-1 on \(I\).
+</p>
+</div>
+</div>
+
+
+<div id="outline-container-org2643b91" class="outline-2">
+<h2 id="org2643b91"><span class="section-number-2">27.</span> 1.33 Definition</h2>
+<div class="outline-text-2" id="text-27">
+<p>
+Let \(X\) and \(Y\) be sets and \(f: X \rightarrow Y\). The image of a set \(E \subseteq X\) under \(f\) is the set
+    \(f(E) := \{y \in Y: y = f(x) \text{ for some } x \in E \}\)
+</p>
+
+<p>
+The inverse image of a set \(E \subseteq Y\) under \(f\) is the set
+    \(f^{-1}(E) := \{x \in X : f(x) = y \text{ for some } y \in E\}\)
+</p>
+</div>
+</div>
+
+
+<div id="outline-container-orga6b10af" class="outline-2">
+<h2 id="orga6b10af"><span class="section-number-2">28.</span> 1.35 Definition</h2>
+<div class="outline-text-2" id="text-28">
+<p>
+Let \(\epsilon = \{E_{\alpha}\}_{\alpha \in A}\) be a collection of sets.
+</p>
+<ol class="org-ol">
+<li>The <i>union</i> of the collection \(\epsilon\) is the set
+\(\bigcup_{\alpha \in A} E_{\alpha} := \{x: x \in E_{\alpha} \text{ for some } \alpha \in A\}\)</li>
+
+<li>The <i>intersection</i> of the collection \(\epsilon\) is the set
+\(\bigcap_{\alpha \in A} E_{\alpha} := \{x: x \in E_{\alpha} \text{ for all }  \alpha \in A \}\)</li>
+</ol>
+</div>
+</div>
+
+<div id="outline-container-org660d56a" class="outline-2">
+<h2 id="org660d56a"><span class="section-number-2">29.</span> 1.36 Theorem [DeMorGan&rsquo;s Laws]</h2>
+<div class="outline-text-2" id="text-29">
+<p>
+Let \(X\) be a set and \(\{E_{\alpha}\}_{\alpha \in A}\) be a collection of subsets of \(X\).
+If for each \(E \subseteq X\) the symbol \(E^c\) represents the set \(X\setminus E\), then
+\(\left(\bigcup_{\alpha \in A} E_{\alpha}\right)^c = \bigcap_{\alpha \in A} E_{\alpha}^c\)
+</p>
+
+<p>
+and
+</p>
+
+<p>
+\(\left(\bigcap_{\alpha \in A} E_{\alpha}\right)^c = \bigcup_{\alpha \in A} E_{\alpha}^c\)
+</p>
+</div>
+</div>
+
+<div id="outline-container-org3a6bed7" class="outline-2">
+<h2 id="org3a6bed7"><span class="section-number-2">30.</span> 1.37 Theorem</h2>
+<div class="outline-text-2" id="text-30">
+<p>
+Let \(X\) and \(Y\) be sets and \(f: X \rightarrow Y\)
+</p>
+
+<ol class="org-ol">
+<li>If \(\{E_{\alpha}\}_{\alpha \in A}\) is a collection of subsets of \(X\), then
+\(f\left(\bigcup_{\alpha \in A}E_{\alpha}\right) = \bigcup_{\alpha \in A}f(E_{\alpha})\) and \(f\left(\bigcap_{\alpha \in A}E_{\alpha}\right) \subseteq \bigcap_{\alpha \in A} f(E_{\alpha})\)</li>
+
+<li>If \(B\) and \(C\) are subsets of \(X\), then \(f(C\setminus B) \supseteq f(C) \setminus f(B)\)</li>
+
+<li>If \(\{E_{\alpha}\}_{\alpha \in A}\) is a collection of subsets of \(Y\), then
+\(f^{-1}\left(\bigcup_{\alpha \in A} E_{\alpha} \right) = \bigcup_{\alpha \in A} f^{-1}(E_{\alpha})\) and \(f^{-1}\left(\bigcap_{\alpha \in A} E_{\alpha} \right) = \bigcap_{\alpha \in A} f^{-1}(E_{\alpha})\)</li>
+
+<li>If \(B\) and \(C\) are subsets of \(Y\), then \(f(C\setminus B) = f(C) \setminus f(B)\).</li>
+
+<li>If \(E \subseteq f(X)\), then \(f(f^{-1}(E)) = E\), but if \(E \subseteq X\) then \(f^{-1}(f(E)) \supseteq E\)</li>
+</ol>
+</div>
+</div>
+
+<div id="outline-container-org3929d3e" class="outline-2">
+<h2 id="org3929d3e"><span class="section-number-2">31.</span> 1.38 Definition</h2>
+<div class="outline-text-2" id="text-31">
+<p>
+Let \(E\) be a set
+</p>
+<ol class="org-ol">
+<li>\(E\) is said to be <i>finite</i> if and only if either \(E = \phi\) or there exists a 1-1 function which takes \(\{1,2,...,n\}\) onto E, for some \(n \in \mathbb{N}\).</li>
+<li>\(E\) is said to be <i>countable</i> if and only if there exists 1-1 function which takes \(\mathbb{N}\) onto \(E\).</li>
+<li>\(E\) is said to be <i>at most count</i> if and only if \(E\) is either finite or countable.</li>
+<li>\(E\) is said to be <i>uncountable</i> if and only if \(E\) is neither finite nor countable.</li>
+</ol>
+</div>
+</div>
+
+<div id="outline-container-orgadaffd6" class="outline-2">
+<h2 id="orgadaffd6"><span class="section-number-2">32.</span> 1.39 Remark [Cantor&rsquo;s Diagonalization Argument].</h2>
+<div class="outline-text-2" id="text-32">
+<p>
+The <i>open interval</i>  (0,1) is <i>uncountable</i>.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org61edff9" class="outline-2">
+<h2 id="org61edff9"><span class="section-number-2">33.</span> 1.40 Lemma</h2>
+<div class="outline-text-2" id="text-33">
+<p>
+A <i>nonempty</i> set \(E\) is <i>at most countable</i> if and only if there is a function \(g\) from \(\mathbb{N}\) onto \(E\).
+</p>
+</div>
+</div>
+
+<div id="outline-container-org71d2fea" class="outline-2">
+<h2 id="org71d2fea"><span class="section-number-2">34.</span> 1.41 Theorem.</h2>
+<div class="outline-text-2" id="text-34">
+<p>
+Suppose that \(A\) and \(B\) are sets.
+</p>
+
+<ol class="org-ol">
+<li>If \(A \subseteq B\) and \(B\) is <i>at most countable</i>, then \(A\) is <i>at most countable</i>.</li>
+<li>If \(A \subseteq B\) and \(A\) is <i>uncountable</i>, then \(B\) is <i>uncountable</i>.</li>
+<li>\(\mathbb{R}\) is uncountable.</li>
+</ol>
+</div>
+</div>
+
+<div id="outline-container-orgd8a4464" class="outline-2">
+<h2 id="orgd8a4464"><span class="section-number-2">35.</span> 1.42 Theorem</h2>
+<div class="outline-text-2" id="text-35">
+<p>
+Let \(A_1, A_2,...,A_n\) be at most <i>countable</i> sets.
+</p>
+<ol class="org-ol">
+<li>Then \(A_1 \times A_2\) is at most <i>countable</i>.</li>
+<li>If
+\(E = \bigcup_{j=1}^{\infty}A_j := \bigcup_{j\in \mathbb{N}} A_j := \{x: x \in A_j  \text{ for some } j \in \mathbb{N} \}\)
+then \(E\) is at most <i>countable</i>.</li>
+</ol>
+</div>
+</div>
+
+<div id="outline-container-org9ba1e1e" class="outline-2">
+<h2 id="org9ba1e1e"><span class="section-number-2">36.</span> 1.43 Remark.</h2>
+<div class="outline-text-2" id="text-36">
+<p>
+The sets \(\mathbb{Z}\) and \(\mathbb{Q}\) are <i>countable</i>, but the set of irrationals is uncountable.
+</p>
+
+<hr />
+</div>
+</div>
+
+<div id="outline-container-orgbb92321" class="outline-2">
+<h2 id="orgbb92321"><span class="section-number-2">37.</span> Extra Remarks</h2>
+<div class="outline-text-2" id="text-37">
+</div>
+<div id="outline-container-orgfbd30fa" class="outline-3">
+<h3 id="orgfbd30fa"><span class="section-number-3">37.1.</span> [Density of Irrationals]</h3>
+<div class="outline-text-3" id="text-37-1">
+<p>
+If \(a,b \in \mathbb{R}\) and \(a < b \Rightarrow \xi \in \mathbb{Q}^c\) such that \(a < \xi < b\).
+</p>
+</div>
+</div>
+
+<div id="outline-container-org2885f50" class="outline-3">
+<h3 id="org2885f50"><span class="section-number-3">37.2.</span> [Approximation Property of Infima]</h3>
+<div class="outline-text-3" id="text-37-2">
+<p>
+If \(\mathbb{M} \subset \mathbb{R}\) has a finite infimum and \(\epsilon > 0 \Rightarrow a \in \mathbb{M}\) such that Inf\(\mathbb{M} + \epsilon > a \ge\) Inf\(\mathbb{M}\).
+</p>
+</div>
+</div>
+
+<div id="outline-container-org7e44132" class="outline-3">
+<h3 id="org7e44132"><span class="section-number-3">37.3.</span> [Completeness Property For Infima]</h3>
+<div class="outline-text-3" id="text-37-3">
+<p>
+If \(\mathbb{E} \subseteq \mathbb{R}\) is nonempty  and bounded below then \(\mathbb{E}\) has a finite infimum.
+</p>
+</div>
+</div>
+
+
+<div id="outline-container-org659833c" class="outline-3">
+<h3 id="org659833c"><span class="section-number-3">37.4.</span> Theorem</h3>
+<div class="outline-text-3" id="text-37-4">
+<p>
+Let \(X, Y\) be sets and \(f: X \rightarrow Y\) then the following statements are equivalent:
+</p>
+<ol class="org-ol">
+<li>\(f\) is 1-1 on \(X\).</li>
+<li>\(f(A\setminus B) = f(A)\setminus f(B)\) for all subsets of \(A\) and \(B\) of \(X\).</li>
+<li>\(f^{-1}(f(E)) = E\) for all subsets \(E\) of \(X\).</li>
+<li>\(f(A \cap B) = f(A) \cap f(B)\) for all subsets \(A\) and \(B\) of X.</li>
+</ol>
+
+<hr />
+</div>
+</div>
+</div>
+
+<div id="outline-container-org51ec606" class="outline-2">
+<h2 id="org51ec606"><span class="section-number-2">38.</span> My Remarks</h2>
+<div class="outline-text-2" id="text-38">
+<ol class="org-ol">
+<li>Addition between rationals and irrationals are always irrationals.</li>
+<li>Multiplication between rationals ans irrationals are always irrationals.</li>
+<li>\(a,b,c,d,\in \mathbb{R}\) and \(a < b, c < d \Rightarrow a + c < b + d\)</li>
+</ol>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="author">Author: IAmParadox</p>
+<p class="date">Created: 2022-02-06 Sun 20:20</p>
+</div>
+</body>
+</html>

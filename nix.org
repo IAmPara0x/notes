@@ -1,0 +1,5 @@
+
+
+python3.8 gets installed to /usr/bin/python, but python3.9 can't be installed in the same path.
+
+nix has a notion of derivation rather than package.

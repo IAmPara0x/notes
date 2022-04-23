@@ -1,0 +1,379 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2022-02-14 Mon 16:25 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Theorems And Properties (Sequences in R)</title>
+<meta name="author" content="IAmParadox" />
+<meta name="generator" content="Org Mode" />
+<style>
+  #content { max-width: 60em; margin: auto; }
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #e6e6e6;
+    border-radius: 3px;
+    background-color: #f2f2f2;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: auto;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    top: -8px;
+    right: 12px;
+    padding: 3px;
+    color: #555;
+    background-color: #f2f2f299;
+  }
+  pre.src:hover:before { display: inline; margin-top: 14px;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-authinfo::before { content: 'Authinfo'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .equation-container {
+    display: table;
+    text-align: center;
+    width: 100%;
+  }
+  .equation {
+    vertical-align: middle;
+  }
+  .equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { width: 90%; }
+</style>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        displayAlign: "center",
+        displayIndent: "0em",
+
+        "HTML-CSS": { scale: 100,
+                        linebreaks: { automatic: "false" },
+                        webFont: "TeX"
+                       },
+        SVG: {scale: 100,
+              linebreaks: { automatic: "false" },
+              font: "TeX"},
+        NativeMML: {scale: 100},
+        TeX: { equationNumbers: {autoNumber: "AMS"},
+               MultLineWidth: "85%",
+               TagSide: "right",
+               TagIndent: ".8em"
+             }
+});
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS_HTML"></script>
+</head>
+<body>
+<div id="content" class="content">
+<h1 class="title">Theorems And Properties (Sequences in R)</h1>
+<div id="table-of-contents" role="doc-toc">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents" role="doc-toc">
+<ul>
+<li><a href="#org552b5ec">1. 2.1 Definition</a></li>
+<li><a href="#orgff761f8">2. 2.4 Remark</a></li>
+<li><a href="#org77c4179">3. 2.5 Definition</a></li>
+<li><a href="#org9bf438a">4. 2.6 Remark</a></li>
+<li><a href="#orgc7f6f62">5. 2.7 Definition</a></li>
+<li><a href="#org42a241d">6. 2.8 Theorem</a></li>
+<li><a href="#org0fc59b2">7. 2.9 Theorem [Squeeze / Sandwich Theorem]</a></li>
+<li><a href="#orgce647d8">8. 2.11 Theorem</a></li>
+<li><a href="#orgb99de2b">9. 2.12 Theorem</a></li>
+<li><a href="#org327e0f8">10. 2.14 Definition</a></li>
+<li><a href="#orge4078b9">11. 2.15 Theorem</a></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org552b5ec" class="outline-2">
+<h2 id="org552b5ec"><span class="section-number-2">1.</span> 2.1 Definition</h2>
+<div class="outline-text-2" id="text-1">
+<p>
+A sequence of real numbers \(\{x_n\}\) is said to converge to a real number \(a \in \mathbb{R}\). If and only if for every \(\epsilon > 0\) there is an \(N \in \mathbb{N}\) (which in general depends on \(\epsilon\) ) such that
+                           \(n \geq N\) implies \(|x_n - a| < \epsilon\)
+</p>
+</div>
+</div>
+
+
+<div id="outline-container-orgff761f8" class="outline-2">
+<h2 id="orgff761f8"><span class="section-number-2">2.</span> 2.4 Remark</h2>
+<div class="outline-text-2" id="text-2">
+<p>
+A Sequence can have at most one limit.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org77c4179" class="outline-2">
+<h2 id="org77c4179"><span class="section-number-2">3.</span> 2.5 Definition</h2>
+<div class="outline-text-2" id="text-3">
+<p>
+By a subsequence of a sequence \(\{x_n\}_{n\in\mathbb{N}}\), we shall mean a sequence of the form \(\{x_{n_k}\}_{k\in\mathbb{N}}\), where each \(n_k \in \mathbb{N}\) and \(n_1 < n_2<\) &#x2026;
+</p>
+</div>
+</div>
+
+<div id="outline-container-org9bf438a" class="outline-2">
+<h2 id="org9bf438a"><span class="section-number-2">4.</span> 2.6 Remark</h2>
+<div class="outline-text-2" id="text-4">
+<p>
+If \(\{x_n\}_{n\in\mathbb{N}}\) converges to \(a\) and \(\{x_{n_k}\}_{k \in \mathbb{N}}\) is any subsequence of \(\{x_n\}_{n\in\mathbb{N}}\), then \(x_{n_k}\) converges to \(a\) as \(k \rightarrow \infty\)
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgc7f6f62" class="outline-2">
+<h2 id="orgc7f6f62"><span class="section-number-2">5.</span> 2.7 Definition</h2>
+<div class="outline-text-2" id="text-5">
+<p>
+Let \(\{x_n\}\) be a sequence of real numbers.
+</p>
+
+<ol class="org-ol">
+<li>The sequence \(\{x_n\}\) is said to be <i>bounded above</i> if and only if the set \(\{x_n : n \in \mathbb{N}\}\) is bounded above.</li>
+<li>The sequence \(\{x_n\}\) is said to be <i>bounded below</i> if and only if the set \(\{x_n : n \in \mathbb{N}\}\) is bounded below.</li>
+<li>\(\{x_n\}\) is said to be <i>bounded</i> if and only if it is both bounded above and below.</li>
+</ol>
+</div>
+</div>
+
+<div id="outline-container-org42a241d" class="outline-2">
+<h2 id="org42a241d"><span class="section-number-2">6.</span> 2.8 Theorem</h2>
+<div class="outline-text-2" id="text-6">
+<p>
+Every <i>convergent sequence</i> is <i>bounded</i>.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org0fc59b2" class="outline-2">
+<h2 id="org0fc59b2"><span class="section-number-2">7.</span> 2.9 Theorem [Squeeze / Sandwich Theorem]</h2>
+<div class="outline-text-2" id="text-7">
+<p>
+Suppose that \(\{x_n\}, \{y_n\} and \{w_n\}\) are <i>real</i> sequences.
+</p>
+
+<ol class="org-ol">
+<li>If \(x_n \rightarrow a\) and \(y_n \rightarrow a\) (the SAME \(a\)) as \(n \rightarrow \infty\), and if there is an \(N_0 \in \mathbb{N}\) such that
+                               \(x_n \leq w_n \leq\) for \(n \geq N_0\)
+then \(w_n \rightarrow a\) as \(n \rightarrow \infty\)</li>
+
+<li>If \(n \rightarrow 0\) as \(n \rightarrow \infty\) and \(\{y_n\}\) is <i>bounded</i> , then \(x_ny_n \rightarrow 0\) as \(n \rightarrow \infty\)</li>
+</ol>
+</div>
+</div>
+
+
+<div id="outline-container-orgce647d8" class="outline-2">
+<h2 id="orgce647d8"><span class="section-number-2">8.</span> 2.11 Theorem</h2>
+<div class="outline-text-2" id="text-8">
+<p>
+Let \(E \subset \mathbb{R}\). If \(E\) has a finite supremum (respectively, a finite infimum), then there is a sequence \(x_n \in E\) such that \(x_n \rightarrow\) sup\(E\) (respectively, a sequence \(y_n \in E\) such that \(y_n \rightarrow\) inf\(E\)) as \(n \rightarrow \infty\).
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgb99de2b" class="outline-2">
+<h2 id="orgb99de2b"><span class="section-number-2">9.</span> 2.12 Theorem</h2>
+<div class="outline-text-2" id="text-9">
+<p>
+Suppose \(\{x_n\}\) and \(\{y_n\}\) are real sequences and that \(\alpha \in \mathbb{R}\). If \(\{x_n\}\) and \(\{y_n\}\) are convergent then
+</p>
+
+<ol class="org-ol">
+<li>\(\lim_{n \rightarrow \infty} (x_n + y_n) = lim_{n \rightarrow \infty} x_n + lim_{n \rightarrow \infty} y_n\)</li>
+<li>\(\lim_{n \rightarrow \infty} (\alpha \cross x_n) = \alpha \cross lim_{n \rightarrow \infty} x_n\)</li>
+<li>\(\lim_{n \rightarrow \infty} (x_n \cross y_n) = (lim_{n \rightarrow \infty} x_n) \cross (lim_{n \rightarrow \infty} y_n)\)</li>
+<li>\(\lim_{n \rightarrow \infty}\frac{x_n}{y_n} = \frac{lim_{n \rightarrow \infty} x_n}{lim_{n \rightarrow \infty} y_n}\).</li>
+</ol>
+</div>
+</div>
+
+<div id="outline-container-org327e0f8" class="outline-2">
+<h2 id="org327e0f8"><span class="section-number-2">10.</span> 2.14 Definition</h2>
+<div class="outline-text-2" id="text-10">
+<p>
+Let \(\{x_n\}\) be a sequence of a real numbers.
+</p>
+<ol class="org-ol">
+<li>\(\{x_n\}\) is said to <i>diverge</i> to \(+\infty\) if and only if for each \(M \in \mathbb{R}\) there is an \(N \in \mathbb{N}\) such that
+\(n \geq N\) implies \(x_n > M\)</li>
+<li>\(\{x_n\}\) is said to <i>diverge</i> to \(-\infty\) if and only if for each \(M \in \mathbb{R}\) there is an \(N \in \mathbb{N}\) such that
+\(n \geq N\) implies \(x_n < M\)</li>
+</ol>
+</div>
+</div>
+
+<div id="outline-container-orge4078b9" class="outline-2">
+<h2 id="orge4078b9"><span class="section-number-2">11.</span> 2.15 Theorem</h2>
+<div class="outline-text-2" id="text-11">
+<p>
+Suppose that \(\{x_n\}\) and \(\{y_n\}\) are <i>real sequences</i> such that \(x_n \rightarrow +\infty\) (respectively \(x_n \rightarrow -\infty\)) as \(n \rightarrow \infty\).
+</p>
+
+<ol class="org-ol">
+<li>If \(y_n\) is <i>bounded below</i> (respectively, \(y_n\) is <i>bounded above</i>), then
+\(\lim_{n \rightarrow \infty} (x_n + y_n) = +\infty\)</li>
+</ol>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="author">Author: IAmParadox</p>
+<p class="date">Created: 2022-02-14 Mon 16:25</p>
+</div>
+</body>
+</html>

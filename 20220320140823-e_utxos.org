@@ -1,0 +1,34 @@
+:PROPERTIES:
+:ID:       2cc5bf31-bea7-4230-aa05-12b6e2a0b29a
+:END:
+#+title: UTXOs
+#+filetags: :Crypto:Blockchain:
+
+#+SETUPFILE: https://fniessen.github.io/org-html-themes/org/theme-readtheord.setup
+
+
+* Unspent Transaction Outputs
+
+In the UTXO model there are transactions, which mainly consists of two things:
+
+    1. Input
+
+       The input of the transactions consists of the output produced by an earlier transaction. To
+       decide whether it is valid for the input to consume the output of that transaction the input
+       must provide some kind of proof that will confirm that it can indeed consume the output. The
+       proof, consists of some arbitrary data that the input must provide which is known as /redeemer/.
+
+       So, now the quesiton is how the output will check whether the /redeemer/ is valid or not?
+
+         The output has an embedded script in it, which is also known as the /validator/. This script
+         is executed whenever some input tries to consume the output. The /validator/ takes the /redeemer/
+         and returns the boolean. If the result is true then the output will be consumed by that input.
+         And hence, the transaction is valid and can proceed.
+
+
+    2. Output
+
+       The output of UTXO contains a /validator/ script along with the value. This /validator/ is executed
+       whenever an input tries to consume it's value. The validator script is executed on the stack and
+       if the end result after the execution of the /validator/ script is True, then the output is allowed
+       to be spent.

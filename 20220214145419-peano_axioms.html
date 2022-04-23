@@ -1,0 +1,477 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2022-04-10 Sun 15:01 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Addition</title>
+<meta name="author" content="IAmParadox" />
+<meta name="generator" content="Org Mode" />
+<style>
+  #content { max-width: 60em; margin: auto; }
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #e6e6e6;
+    border-radius: 3px;
+    background-color: #f2f2f2;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: auto;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    top: -8px;
+    right: 12px;
+    padding: 3px;
+    color: #555;
+    background-color: #f2f2f299;
+  }
+  pre.src:hover:before { display: inline; margin-top: 14px;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-authinfo::before { content: 'Authinfo'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .equation-container {
+    display: table;
+    text-align: center;
+    width: 100%;
+  }
+  .equation {
+    vertical-align: middle;
+  }
+  .equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { width: 90%; }
+</style>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        displayAlign: "center",
+        displayIndent: "0em",
+
+        "HTML-CSS": { scale: 100,
+                        linebreaks: { automatic: "false" },
+                        webFont: "TeX"
+                       },
+        SVG: {scale: 100,
+              linebreaks: { automatic: "false" },
+              font: "TeX"},
+        NativeMML: {scale: 100},
+        TeX: { equationNumbers: {autoNumber: "AMS"},
+               MultLineWidth: "85%",
+               TagSide: "right",
+               TagIndent: ".8em"
+             }
+});
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS_HTML"></script>
+</head>
+<body>
+<div id="content" class="content">
+<h1 class="title">Addition</h1>
+<div id="table-of-contents" role="doc-toc">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents" role="doc-toc">
+<ul>
+<li><a href="#org6e38bce">1. Axiom 2.1.</a></li>
+<li><a href="#orgf96d87b">2. Axiom 2.2</a></li>
+<li><a href="#orgd55b90d">3. Definition 2.1.3</a></li>
+<li><a href="#orgdc02b09">4. Axiom 2.3</a></li>
+<li><a href="#org145a2b3">5. Axiom 2.4</a></li>
+<li><a href="#org4b5bb29">6. Axiom 2.5 (Principle of mathematical induction).</a></li>
+<li><a href="#org3365806">7. Proposition 2.1.11:</a></li>
+<li><a href="#org336a594">8. Assumption 2.6 (Informal)</a></li>
+<li><a href="#org76c8b43">9. Proposition 2.1.16 (Recursive definitions)</a></li>
+<li><a href="#org3f5caba">10. Definition 2.2.1 (Addition of natural numbers).</a></li>
+<li><a href="#orgba42919">11. Lemma 2.2.2:</a></li>
+<li><a href="#org552fa43">12. Lemma 2.2.3:</a></li>
+<li><a href="#org8df7bb6">13. Proposition 2.2.4 (Addition is commutative).</a></li>
+<li><a href="#orgb067c9c">14. Proposition 2.2.5 (Addition is associative).</a></li>
+<li><a href="#orgf39c9f1">15. Proposition 2.2.6 (Cancellation law).</a></li>
+<li><a href="#orgd90d4a0">16. Definition 2.2.7</a></li>
+<li><a href="#orgf4e7187">17. Proposition 2.2.8</a></li>
+<li><a href="#org32d5c77">18. Corollary 2.2.9</a></li>
+<li><a href="#org37ea721">19. Lemma 2.2.10</a></li>
+<li><a href="#org3a18522">20. Definition 2.2.11 (Ordering of the natural numbers).</a></li>
+<li><a href="#org75b26d7">21. Proposition 2.2.12 (Basic properties of order for natural numbers).</a></li>
+<li><a href="#org44917a8">22. Proposition 2.2.13 (Trichotomy of order for natural number).</a></li>
+<li><a href="#org403f2ac">23. Proposition 2.2.14 (Strong principle of induction)</a></li>
+</ul>
+</div>
+</div>
+
+
+<div id="outline-container-org6e38bce" class="outline-2">
+<h2 id="org6e38bce"><span class="section-number-2">1.</span> Axiom 2.1.</h2>
+<div class="outline-text-2" id="text-1">
+<p>
+\(0\) is a <i>natural number</i>.
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgf96d87b" class="outline-2">
+<h2 id="orgf96d87b"><span class="section-number-2">2.</span> Axiom 2.2</h2>
+<div class="outline-text-2" id="text-2">
+<p>
+If \(n\) is a <i>natural number</i>, then \(n++\) is also a <i>natural number</i>.
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgd55b90d" class="outline-2">
+<h2 id="orgd55b90d"><span class="section-number-2">3.</span> Definition 2.1.3</h2>
+<div class="outline-text-2" id="text-3">
+<p>
+We define \(1\) to be number \(0++\), \(2\) to be \((0++)++\), \(3\) to be \(((0++)++)++\), so on and so forth.
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgdc02b09" class="outline-2">
+<h2 id="orgdc02b09"><span class="section-number-2">4.</span> Axiom 2.3</h2>
+<div class="outline-text-2" id="text-4">
+<p>
+\(0\) is not the successor of any <i>natural number</i>; i.e. \(n++ \neq 0 \text{ } \forall \text{ } n\).
+</p>
+</div>
+</div>
+
+<div id="outline-container-org145a2b3" class="outline-2">
+<h2 id="org145a2b3"><span class="section-number-2">5.</span> Axiom 2.4</h2>
+<div class="outline-text-2" id="text-5">
+<p>
+Different natural numbers must have different successors; i.e, if \(n,m\) are natural numbers and \(n \neq m\), then
+\(n++ \neq m++\), <i>Equivalently</i>, if \(n++ = m++\), then we must have \(n = m\).
+</p>
+</div>
+</div>
+
+<div id="outline-container-org4b5bb29" class="outline-2">
+<h2 id="org4b5bb29"><span class="section-number-2">6.</span> Axiom 2.5 (Principle of mathematical induction).</h2>
+<div class="outline-text-2" id="text-6">
+<p>
+Let \(P(n)\) be any property pertaining to a natural number \(n\). Suppose that \(P(0)\) is true, and suppose that whenever \(P(n)\) is true, \(P(n++)\) is also true. Then \(P(n)\) is true for every natural number n.
+</p>
+</div>
+</div>
+
+
+<div id="outline-container-org3365806" class="outline-2">
+<h2 id="org3365806"><span class="section-number-2">7.</span> Proposition 2.1.11:</h2>
+<div class="outline-text-2" id="text-7">
+<p>
+A certain property \(P(n)\) is true for every natural number n.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org336a594" class="outline-2">
+<h2 id="org336a594"><span class="section-number-2">8.</span> Assumption 2.6 (Informal)</h2>
+<div class="outline-text-2" id="text-8">
+<p>
+There exists a number system \(\mathbb{N}\), whose elements we will call natural numbers, for which <i>Axioms 2.1-2.5</i> are true.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org76c8b43" class="outline-2">
+<h2 id="org76c8b43"><span class="section-number-2">9.</span> Proposition 2.1.16 (Recursive definitions)</h2>
+<div class="outline-text-2" id="text-9">
+<p>
+Suppose for each natural number n, we have some function \(f_n : \mathbb{N} \rightarrow \mathbb{N}\) from the natural numbers to the natural numbers.
+Let \(c\) be a natural number. Then we can assign a unique natrual number \(a_n\) to each natural number n, such that \(a_0 = c\) and \(a_{n++} = f_n(a_n)\) for each natural number n.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org3f5caba" class="outline-2">
+<h2 id="org3f5caba"><span class="section-number-2">10.</span> Definition 2.2.1 (Addition of natural numbers).</h2>
+<div class="outline-text-2" id="text-10">
+<p>
+Let \(m\) be a natural number. To add zero to \(m\), we define \(0 + m := m\). Now suppose inductively that we have defined how to add n to m. Then we can add \(n++\) to \(m\) by definition \((n++)+m := (n+m)++\).
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgba42919" class="outline-2">
+<h2 id="orgba42919"><span class="section-number-2">11.</span> Lemma 2.2.2:</h2>
+<div class="outline-text-2" id="text-11">
+<p>
+For any natural number \(n\), \(n + 0 = n\).
+</p>
+</div>
+</div>
+
+<div id="outline-container-org552fa43" class="outline-2">
+<h2 id="org552fa43"><span class="section-number-2">12.</span> Lemma 2.2.3:</h2>
+<div class="outline-text-2" id="text-12">
+<p>
+For any natural numbers n and m, \(n + (m++) = (n+m)++\).
+</p>
+</div>
+</div>
+
+<div id="outline-container-org8df7bb6" class="outline-2">
+<h2 id="org8df7bb6"><span class="section-number-2">13.</span> Proposition 2.2.4 (Addition is commutative).</h2>
+<div class="outline-text-2" id="text-13">
+<p>
+For any natural numbers \(n\) and \(m\), \(n + m = m + n\).
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgb067c9c" class="outline-2">
+<h2 id="orgb067c9c"><span class="section-number-2">14.</span> Proposition 2.2.5 (Addition is associative).</h2>
+<div class="outline-text-2" id="text-14">
+<p>
+For any natural numbers \(a,b,c\), we have \((a + b) + c = a + (b + c)\).
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgf39c9f1" class="outline-2">
+<h2 id="orgf39c9f1"><span class="section-number-2">15.</span> Proposition 2.2.6 (Cancellation law).</h2>
+<div class="outline-text-2" id="text-15">
+<p>
+Let \(a,b,c\) be natural numbers such that \(a + b = a + c\). Then we have \(b = c\).
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgd90d4a0" class="outline-2">
+<h2 id="orgd90d4a0"><span class="section-number-2">16.</span> Definition 2.2.7</h2>
+<div class="outline-text-2" id="text-16">
+<p>
+A natural number \(n\) is said to be <i>positive</i> iff it is not equal to 0.
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgf4e7187" class="outline-2">
+<h2 id="orgf4e7187"><span class="section-number-2">17.</span> Proposition 2.2.8</h2>
+<div class="outline-text-2" id="text-17">
+<p>
+If \(a\) is a <i>positive</i> and \(b\) is a <i>natural number</i>, then \(a + b\) is <i>positive</i> (and hence \(b + a\) is also, by Proposition 2.2.4).
+</p>
+</div>
+</div>
+
+<div id="outline-container-org32d5c77" class="outline-2">
+<h2 id="org32d5c77"><span class="section-number-2">18.</span> Corollary 2.2.9</h2>
+<div class="outline-text-2" id="text-18">
+<p>
+If \(a\) and \(b\) are natural numbers such that \(a + b = 0\), then \(a = 0\) and \(b = 0\).
+</p>
+</div>
+</div>
+
+<div id="outline-container-org37ea721" class="outline-2">
+<h2 id="org37ea721"><span class="section-number-2">19.</span> Lemma 2.2.10</h2>
+<div class="outline-text-2" id="text-19">
+<p>
+Let \(a\) be a positive number. Then there exists exactly one natural number \(b\) such that \(b++\) = \(0\).
+</p>
+</div>
+</div>
+
+<div id="outline-container-org3a18522" class="outline-2">
+<h2 id="org3a18522"><span class="section-number-2">20.</span> Definition 2.2.11 (Ordering of the natural numbers).</h2>
+<div class="outline-text-2" id="text-20">
+<p>
+Let \(n\) and \(m\) be natural numbers. We say that \(n\) is <i>greater than or equal to m</i>, and we write \(n \geq m\), iff we have
+\(n = m + a\) for some natural number a. We say that \(n\) is <i>strictly greater than m</i>, and write \(n > m\) iff \(n \geq m\) and \(n \neq m\).
+</p>
+</div>
+</div>
+<div id="outline-container-org75b26d7" class="outline-2">
+<h2 id="org75b26d7"><span class="section-number-2">21.</span> Proposition 2.2.12 (Basic properties of order for natural numbers).</h2>
+<div class="outline-text-2" id="text-21">
+<p>
+Let \(a,b,c\) be <i>natural numbers</i>. Then
+</p>
+<ol class="org-ol">
+<li>(Order is reflexive) \(a \geq a\)</li>
+<li>(Order is transitive) If \(a \geq b\) and \(b \geq c\), then \(a \geq c\).</li>
+<li>(Order is anti-symmetric) If \(a \geq b\) and \(b \geq a\), then \(a = b\).</li>
+<li>(Addition ppreservers order) \(a \geq b\) iff \(a + c \geq b + c\).</li>
+<li>\(a < b\) iff \(a++ \leq b\).</li>
+<li>\(a < b\) iff \(b = a + d\) for some positive number d.</li>
+</ol>
+</div>
+</div>
+
+<div id="outline-container-org44917a8" class="outline-2">
+<h2 id="org44917a8"><span class="section-number-2">22.</span> Proposition 2.2.13 (Trichotomy of order for natural number).</h2>
+<div class="outline-text-2" id="text-22">
+<p>
+Let \(a\) and \(b\) be <i>natural numbers</i>. Then exactly one of the following statements is true: \(a < b, a = b\) or \(a > b\).
+</p>
+</div>
+</div>
+
+<div id="outline-container-org403f2ac" class="outline-2">
+<h2 id="org403f2ac"><span class="section-number-2">23.</span> Proposition 2.2.14 (Strong principle of induction)</h2>
+<div class="outline-text-2" id="text-23">
+<p>
+Let \(m_0\) be a <i>natural number</i>, and let \(P(m)\) be a property pertaining to an arbitrary natural number \(m\).
+Suppose that for each \(m \geq m_0\), we have the following implication: if \(P(m^')\) is true for all natural numbers \(m_0 \leq m^{'} \leq m\), then \(P(m)\) is also true. Then we can conclude that \(P(m)\) is true for all natural numbers \(m \geq m_0\).
+</p>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="author">Author: IAmParadox</p>
+<p class="date">Created: 2022-04-10 Sun 15:01</p>
+</div>
+</body>
+</html>

@@ -1,0 +1,54 @@
+:PROPERTIES:
+:ID:       1e1c2e88-f3ae-49bc-b62d-505ba52163f2
+:END:
+#+title: Plutus
+#+filetags: :Blockchain:Crypto:
+
+* What is Plutus?
+
+  Plutus is a platform for writing apps that interact with the distributed ledger featuring scripting capabilities.
+
+** On Chain Code
+
+This is a script that is run on the node of a blockchain, the script tries to validate the transaction.
+If this script succeeds then the targeted UTXO can be spent to create new UTXOs. Cardano uses plutus-core
+language that's based on the lambda calculus to create such scripts. But generally, PlutusTx is used to compile
+haskell code to plutus-core to create on chain scripts.
+
+** Off Chain Code
+
+This is the code that runs on the wallet of the user that's trying to spend the UTXO this code checks whether
+it should unlock the UTXO that is locked by that particular script and then allow the transaction to be created.
+
+Note: Off Chain Code allows transaction to be created but it doesn't mean that the transaction is valid. Generally,
+      off chain code can tell if the transaction is valid or not, but this is not the job of the off chain code.
+      To determine the validity of the transaction is the job of on chain code.
+
+
+* Plutus Platform
+
+1. PlutuxTx is the library that contains tools for compiling Haskell code to Plutus core.
+
+2. Plutus.Contract is the library for writing plutus apps, this deals with off chain code.
+
+3. Ledger.Constraints Constructing and validating Plutus transactions.
+
+4. Ledger.Typed.Scripts this is the type safe way to write haskell code for on chain validators.
+   The code will be compiled to plutus-core using PlutuxTx.
+
+** PlutusTx
+
+** Ledger.Constraints
+
+
+* Address
+
+The address is where an UTXO is attached to. This address can be a Public key hash or a validator hash which means that the UTXO is locked to a script. Address comprises of two types:
+
+    1. *Credentials*
+
+       This type has two constructors which are /PubKeyCredential/ and /ScriptCredential/. This is the type which contains the information about where an UTXO is and how it is locked.
+
+    2. Staking Credentials
+
+       The staking credentials controls /delegation/ decision for the Ada at this address.
