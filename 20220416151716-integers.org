@@ -4,4 +4,68 @@
 #+title: Integers
 #+filetags: :Calculus:Multivariable Calculus:Analysis:
 
-* Integers
+
+* Definition 4.1.1 (Integers)
+
+    An integer is an expression of the form $a -- b$, where $a$ aned $b$ are natural numbers. Two integers are considered to be equal, $a -- b = -- c$, if and onlly if $a + b = c + d$. We let $\mathbb{Z}$ denote the set of all the integers.
+
+* Definition 4.1.2
+
+    The sum of two integers, $(a -- b) + (c -- d)$, is defined by the formula
+
+        $(a -- b) + (c -- d) := (a + c) -- (b + d)$.
+
+    The Product of two integers, $(a -- b) \times (c -- d)$, is defined by
+
+        $(a -- b) \times (c -- d) := (ac + bd) -- (ad + bc)$.
+
+* Lemma 4.1.3 (Addition and multiplication are well-defined).
+
+    Let  $a,b,a',b',c,d$ be natural numbers. If $(a -- b) = (a' -- b')$, then $(a -- b) + (c -- d) = (a' -- b') + (c -- d)$ and $(a -- b) \times (c -- d) = (a' -- b') \times (c -- d)$, and also $(c -- d) \times (a -- b) = (c -- d) \times (a' -- b')$.  Thus addition and multiplication are well-defined operations (equal inputs give equal outputs).
+
+* Definition 4.1.4 (Negation of integers).
+
+    If $(a -- b)$ is an integer, we define the Negation $- (a -- b)$ to be the integer $(b -- a)$. In particular if $n = n -- 0$ is a positive natural number, we can define its Negation $-n = 0 -- n$.
+
+* Lemma 4.1.5 (Tricotmy of integers).
+
+    Let $x$ be an integer. Then exactly one of the following three statements is true:
+
+    a) $x$ is /zero/.
+    b) $x$ is equal to a positive natural number $n$.
+    c) $x$ is the negation $-n$ of a positive natural number $n$.
+
+* Proposition 4.1.6 (Laws of algebra for integers).
+
+    Let $x,y,z$ be integers. Then we have
+
+       1. $x + y = y + x$
+       2. $(x + y) + z = x + (y + z)$
+       3. $x + 0 = 0 + x = x$
+       4. $x + (-x) = (-x) + x = 0$
+       5. $xy = yx$
+       6. $x(yz) = (xy)z$
+       7. $x(y+z) = xy + xz$
+       8. $(y + z)x = yx + zx$
+
+* Proposition 4.1.8 (Integers have no zero divisors).
+
+    Let $a$ and $b$ be integers such that $ab = 0$. THen either $a = 0$ or $b = 0$ (or both).
+
+* Corollary 4.1.9 (Cancellation law for integers).
+
+    If $a,b,c$ are integers such that $ac = bc$ and $c$ is non-zero, then $a = b$.
+
+* Defintion 4.1.10 (Ordering of the integers).
+
+    Let $n#$ and $m$ be integers. We say that $n$ is greater than or equal to m, and write $n \geq m$ or $m \leq n$, iff we have $n = m + a$ for some natural number a. We say that $n$ is strictly greater than $m$, and write $n > m$ or $m < n$, iff $n \geq m$ and $n \neq m$.
+
+* Lemma 4.1.11 (Properties of order).
+
+    Let $a,b,c$ be integers.
+
+    a) $a >b$ iff $a - b$ is positive natural number.
+    b) (Addition preservers order) If $a > b$, then $a + c > b + c$.
+    c) (Positive multiplication preserves order) If $a > b$ and $c$ is positive, then $ac > bc$.
+    d) (Negation reverses order) If $a > b$, then $-a < -b$.
+    e) (Order is transitive) If $a > b$ and $b > c$, then $a > c$.
