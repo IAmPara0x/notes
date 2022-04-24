@@ -69,3 +69,4 @@
     c) (Positive multiplication preserves order) If $a > b$ and $c$ is positive, then $ac > bc$.
     d) (Negation reverses order) If $a > b$, then $-a < -b$.
     e) (Order is transitive) If $a > b$ and $b > c$, then $a > c$.
+    f) (Order trichotomy) Exactly one of the statements $a > b$, $a < b$, or $a = b$ is true.
