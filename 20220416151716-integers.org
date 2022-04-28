@@ -58,7 +58,7 @@
 
 * Defintion 4.1.10 (Ordering of the integers).
 
-    Let $n#$ and $m$ be integers. We say that $n$ is greater than or equal to m, and write $n \geq m$ or $m \leq n$, iff we have $n = m + a$ for some natural number a. We say that $n$ is strictly greater than $m$, and write $n > m$ or $m < n$, iff $n \geq m$ and $n \neq m$.
+    Let $n$ and $m$ be integers. We say that $n$ is greater than or equal to m, and write $n \geq m$ or $m \leq n$, iff we have $n = m + a$ for some natural number a. We say that $n$ is strictly greater than $m$, and write $n > m$ or $m < n$, iff $n \geq m$ and $n \neq m$.
 
 * Lemma 4.1.11 (Properties of order).
 
