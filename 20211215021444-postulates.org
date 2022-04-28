@@ -70,4 +70,3 @@ $\text{if } a < b \Rightarrow a + c < b + c$
 $a < b \text{ and } 0 < c \Rightarrow a\times c < b \times c$
 
 $a < b \text{ and } c < 0 \Rightarrow b\times c < a \times c$
-
